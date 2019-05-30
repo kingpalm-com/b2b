@@ -3,8 +3,11 @@
 // https://github.com/kingpalm-com/b2b/issues/1
 // https://www.upwork.com/ab/f/contracts/22250754
 .kingpalm-b2b-registration {
-	input[type=checkbox] {
-		position: relative; top: 1px;
-		& + label.addafter {margin-left: 0.5em;}
+	.df-field {
+		&:not(:first-child) {margin-top: 0.5em;}
+		input[type=checkbox] {
+			position: relative; top: 1px;
+			& + label.addafter {margin-left: 0.5em;}
+		}
 	}
 }

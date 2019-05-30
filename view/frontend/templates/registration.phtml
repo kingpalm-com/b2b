@@ -1,15 +1,27 @@
 <?php
 	use Df\Framework\Form\Element\Checkbox;
+	use Df\Framework\Form\Element\Text;
 	use Magento\Framework\Data\Form;
+	use KingPalm\B2B\Renderer;
+	$r = new Renderer; /** @var Renderer $r */
 	/** @var Form $form */
 	$form = df_new_omd(Form::class, ['html_id_prefix' => 'kingpalm-b2b-registration-']);
-	$checkbox = df_new_omd(Checkbox::class, [
-		'html_id' => 'business'
-		,Checkbox::LABEL => 'Retail Registration?'
-		,'name' => 'kingpalm_business'
-	]); /** @var Checkbox $checkbox */
-	$checkbox->setForm($form);
+	$fIsBusiness = df_new_omd(Checkbox::class, [
+		'html_id' => 'is_business'
+		,'label' => 'Retail Registration?'
+		,'name' => 'kingpalm_is_business'
+	]); /** @var Checkbox $fIsBusiness */
+	$fIsBusiness->setForm($form);
+	$fBusinessName = df_new_omd(Text::class, [
+		'html_id' => 'business_name'
+		,'label' => 'Business Name'
+		,'name' => 'kingpalm_business_name'
+	]); /** @var Text $fBusinessName */
+	$fBusinessName->setForm($form);
 ?>
 <div class='kingpalm-b2b-registration'>
-	<?= $checkbox->getElementHtml() ?>
+	<?php
+		echo $r->render($fIsBusiness);
+		echo $r->render($fBusinessName);
+	?>
 </div>
