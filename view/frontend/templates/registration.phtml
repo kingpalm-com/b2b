@@ -1,1 +1,15 @@
-<?= __FILE__;
+<?php
+	use Df\Framework\Form\Element\Checkbox;
+	use Magento\Framework\Data\Form;
+	/** @var Form $form */
+	$form = df_new_omd(Form::class, ['html_id_prefix' => 'kingpalm-b2b-registration-']);
+	$checkbox = df_new_omd(Checkbox::class, [
+		'html_id' => 'business'
+		,Checkbox::LABEL => 'Retail Registration?'
+		,'name' => 'kingpalm_business'
+	]); /** @var Checkbox $checkbox */
+	$checkbox->setForm($form);
+?>
+<div class='kingpalm-b2b-registration'>
+	<?= $checkbox->getElementHtml() ?>
+</div>
