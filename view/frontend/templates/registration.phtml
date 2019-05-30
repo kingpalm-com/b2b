@@ -1,20 +1,7 @@
-<?php  /** @var KingPalm\B2B\Block\Registration $block */
-	use Df\Framework\Form\Element\Checkbox;
-	use Magento\Framework\Data\Form;
-	use KingPalm\B2B\Renderer;
-	$r = new Renderer; /** @var Renderer $r */
-	/** @var Form $form */
-	$form = df_new_omd(Form::class, ['html_id_prefix' => 'kingpalm-b2b-registration-']);
-	$fIsBusiness = df_new_omd(Checkbox::class, [
-		'html_id' => 'is_business'
-		,'label' => 'Retail Registration?'
-		,'name' => 'kingpalm_is_business'
-	]); /** @var Checkbox $fIsBusiness */
-	$fIsBusiness->setForm($form);
-?>
+<?php  /** @var KingPalm\B2B\Block\Registration $block */ ?>
 <div class='kingpalm-b2b-registration'>
 	<?php
-		echo $r->render($fIsBusiness);
+		echo $block->cb('is_business', 'Retail Registration?');
 		echo $block->text('business_name', 'Business Name');
 	?>
 </div>
