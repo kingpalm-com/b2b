@@ -9,7 +9,7 @@ How do built-in Magento modules add a custom block to the frontend customer regi
 https://mage2.pro/t/927 -->
 		<referenceContainer name='form.additional.info'>
 			<block
-				class='Magento\Framework\View\Element\Template'
+				class='KingPalm\B2B\Block\Registration'
 				name='KingPalm_B2B_Registration'
 				template='KingPalm_B2B::registration.phtml'
 			/>
