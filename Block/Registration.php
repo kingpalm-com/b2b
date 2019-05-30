@@ -2,6 +2,7 @@
 namespace KingPalm\B2B\Block;
 use Df\Framework\Form\Element as E;
 use Df\Framework\Form\Element\Checkbox;
+use Df\Framework\Form\Element\Select2;
 use Df\Framework\Form\Element\Text;
 use KingPalm\B2B\Renderer;
 use Magento\Framework\Data\Form;
@@ -14,6 +15,7 @@ use Magento\Framework\View\Element\Template as _P;
 class Registration extends _P {
 	/**
 	 * 2019-05-30
+	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
 	 * @param $id
 	 * @param $label
 	 * @return string
@@ -22,8 +24,21 @@ class Registration extends _P {
 
 	/**
 	 * 2019-05-30
-	 * @param $id
-	 * @param $label
+	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
+	 * @param string $id
+	 * @param string $label
+	 * @param string[]
+	 * @return string[] $options
+	 */
+	function select($id, $label, array $options) {return $this->e(Select2::class, $id, $label, [
+		'values' => df_a_to_options($options)
+	]);}
+
+	/**
+	 * 2019-05-30
+	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
+	 * @param string $id
+	 * @param string $label
 	 * @return string
 	 */
 	function text($id, $label) {return $this->e(Text::class, $id, $label);}
@@ -33,14 +48,16 @@ class Registration extends _P {
 	 * @used-by cb()
 	 * @used-by text()
 	 * @param string $c
-	 * @param $id
-	 * @param $label
+	 * @param string $id
+	 * @param string $label
+	 * @param array(string => mixed) $d
 	 * @return string
 	 */
-	private function e($c, $id, $label) {
+	private function e($c, $id, $label, $d = []) {
 		/** @var E|AE $e */
-		$e = df_new_omd($c, ['html_id' => $id, 'label' => $label, 'name' => "kingpalm_business_$id"]);
+		$e = df_new_omd($c, $d + ['html_id' => $id, 'label' => $label, 'name' => "kingpalm_business_$id"]);
 		$e->setForm($this->form());
+		$e->setRenderer($this->r());
 		return $this->r()->render($e);
 	}
 

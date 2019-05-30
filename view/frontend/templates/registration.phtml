@@ -1,7 +1,13 @@
-<?php  /** @var KingPalm\B2B\Block\Registration $block */ ?>
+<?php $b = $block; /** @var KingPalm\B2B\Block\Registration $b */ ?>
 <div class='kingpalm-b2b-registration'>
-	<?php
-		echo $block->cb('is_business', 'Retail Registration?');
-		echo $block->text('business_name', 'Business Name');
-	?>
+	<?= df_cc_n(
+		$b->cb('is_business', 'Retail Registration?')
+		,$b->text('name', 'Business Name')
+		,$b->text('dba', 'DBA (Doing Business As)')
+		,$b->select('type', 'What type of business do you run?', [
+			'Smoke Shop', 'Dispensary', 'Vape Shop', 'Adult Store', 'Gas Station'
+			,'Convenience/Liquor/Grocery Store', 'Distributor/Wholesaler', 'Gift/Novelty Shop'
+			,'Hookah Lounge/Store', 'Tobacco Store', 'Tattoo Parlor', 'Processor'
+		])
+	) ?>
 </div>
