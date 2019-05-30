@@ -1,0 +1,18 @@
+<?xml version='1.0'?>
+<page 
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xsi:noNamespaceSchemaLocation='urn:magento:framework:View/Layout/etc/page_configuration.xsd'
+>
+	<body>
+<!-- 2019-05-30
+How do built-in Magento modules add a custom block to the frontend customer registration form?
+https://mage2.pro/t/927 -->
+		<referenceContainer name='form.additional.info'>
+			<block
+				class='Magento\Framework\View\Element\Template'
+				name='KingPalm_B2B_Registration'
+				template='KingPalm_B2B::registration.phtml'
+			/>
+		</referenceContainer>
+	</body>
+</page>
