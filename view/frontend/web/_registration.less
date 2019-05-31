@@ -4,17 +4,18 @@
 // https://www.upwork.com/ab/f/contracts/22250754
 .kingpalm-b2b-registration {
 	.df-field {
-		&:not(:first-child) {margin-top: 0.5em;}
+		&:not(:first-child) {margin-top: 1em;}
+		label.addbefore {margin-bottom: 2px;}
 		input {
+			font-family: Conv_ProximaNova-Regular;
+			font-size: 15px;
 			&[type=checkbox] {
 				position: relative; top: 1px;
 				& + label.addafter {margin-left: 0.5em;}
 			}
-			&.df-number {
-				text-align: center;
-				width: 4em;
-			}
+			&.df-number {text-align: center; width: 4em;}
 		}
+		&.df-number label.addbefore {padding-right: 0.75em;}
 		select {width: 100%;}
 	}
 }
