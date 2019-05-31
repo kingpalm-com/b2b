@@ -32,9 +32,7 @@ class Registration extends _P {
 	 * @param array(string => mixed) $d [optional]
 	 * @return string
 	 */
-	function num($id, $label) {return $this->e(Text::class, $id, $label, [
-		'class' => 'df-number'
-	]);}
+	function inline($id, $label) {return $this->e(Text::class, $id, $label, ['class' => 'df-inline']);}
 
 	/**
 	 * 2019-05-30
@@ -78,6 +76,7 @@ class Registration extends _P {
 	/**
 	 * 2019-05-30
 	 * @used-by cb()
+	 * @used-by inline()
 	 * @used-by text()
 	 * @param string $c
 	 * @param string $id
@@ -86,8 +85,11 @@ class Registration extends _P {
 	 * @return string
 	 */
 	private function e($c, $id, $label, $d = []) {
-		/** @var E|AE $e */
-		$e = df_new_omd($c, $d + ['html_id' => $id, 'label' => $label, 'name' => "kingpalm_business_$id"]);
+		$e = df_new_omd($c,
+			['class' => df_cc_s($id, dfa($d, 'class'))]
+			+ $d
+			+ ['html_id' => $id, 'label' => $label, 'name' => "kingpalm_business_$id"]
+		); /** @var E|AE $e */
 		$e->setForm($this->form());
 		$e->setRenderer($this->r());
 		return $this->r()->render($e);
