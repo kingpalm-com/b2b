@@ -20,26 +20,6 @@ class Renderer implements IRenderer {
 	 */
 	function render(AE $e) {
 		$labelAtRight = E::shouldLabelBeAtRight($e); /** @var bool $labelAtRight */
-		/**
-		 * 2015-12-11
-		 * Класс .df-label-sibling означает: элемент рядом с label.
-		 * В данном случае это всегда непосредственно элемент управления,
-		 * а вот для блочных элементов это может быть div-оболочка вокруг элемента:
-		 * @see \Df\Backend\Block\Widget\Form\Renderer\Fieldset\Element::elementHtml()
-		 */
-		$e->addClass('df-label-sibling');
-		/**
-		 * 2015-12-28
-		 * К сожалению, мы не можем назначать классы для label:
-		 * @uses \Magento\Framework\Data\Form\Element\AbstractElement::getLabelHtml()
-		 * https://github.com/magento/magento2/blob/2.0.0/lib/internal/Magento/Framework/Data/Form/Element/AbstractElement.php#L425
-		 * Потому ситуацию, когда label расположена справа от элемента,
-		 * помечаем классом для элемента.
-		 * При этом сама label справа может быть выбрана селектором .df-label-sibling ~ label
-		 */
-		if ($labelAtRight) {
-			$e->addClass('df-label-at-right');
-		}
 		$innerA = [$this->label($e), $e->getElementHtml()];  /** @var string[] $innerA */
 		if ($labelAtRight) {
 			$innerA = array_reverse($innerA);

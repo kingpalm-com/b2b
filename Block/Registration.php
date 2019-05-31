@@ -2,7 +2,7 @@
 namespace KingPalm\B2B\Block;
 use Df\Framework\Form\Element as E;
 use Df\Framework\Form\Element\Checkbox;
-use Df\Framework\Form\Element\Select2;
+use Df\Framework\Form\Element\Select;
 use Df\Framework\Form\Element\Text;
 use KingPalm\B2B\Renderer;
 use Magento\Framework\Data\Form;
@@ -23,15 +23,15 @@ class Registration extends _P {
 	function cb($id, $label) {return $this->e(Checkbox::class, $id, $label);}
 
 	/**
-	 * 2019-05-30
+	 * 2019-05-31
 	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
 	 * @param string $id
 	 * @param string $label
-	 * @param string[]
-	 * @return string[] $options
+	 * @param array(string => mixed) $d [optional]
+	 * @return string
 	 */
-	function select($id, $label, array $options) {return $this->e(Select2::class, $id, $label, [
-		'values' => df_a_to_options($options)
+	function num($id, $label) {return $this->e(Text::class, $id, $label, [
+		'class' => 'df-number'
 	]);}
 
 	/**
@@ -39,9 +39,22 @@ class Registration extends _P {
 	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
 	 * @param string $id
 	 * @param string $label
+	 * @param string[]
+	 * @return string[] $o
+	 */
+	function select($id, $label, array $o) {return $this->e(Select::class, $id, $label, [
+		'values' => df_a_to_options($o)
+	]);}
+
+	/**
+	 * 2019-05-30
+	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
+	 * @param string $id
+	 * @param string $label
+	 * @param array(string => mixed) $d [optional]
 	 * @return string
 	 */
-	function text($id, $label) {return $this->e(Text::class, $id, $label);}
+	function text($id, $label, $d = []) {return $this->e(Text::class, $id, $label, $d);}
 
 	/**
 	 * 2019-05-30
@@ -50,7 +63,7 @@ class Registration extends _P {
 	 * @param string $c
 	 * @param string $id
 	 * @param string $label
-	 * @param array(string => mixed) $d
+	 * @param array(string => mixed) $d [optional]
 	 * @return string
 	 */
 	private function e($c, $id, $label, $d = []) {

@@ -5,9 +5,16 @@
 .kingpalm-b2b-registration {
 	.df-field {
 		&:not(:first-child) {margin-top: 0.5em;}
-		input[type=checkbox] {
-			position: relative; top: 1px;
-			& + label.addafter {margin-left: 0.5em;}
+		input {
+			&[type=checkbox] {
+				position: relative; top: 1px;
+				& + label.addafter {margin-left: 0.5em;}
+			}
+			&.df-number {
+				text-align: center;
+				width: 4em;
+			}
 		}
+		select {width: 100%;}
 	}
 }
