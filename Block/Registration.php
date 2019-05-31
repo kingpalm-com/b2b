@@ -5,6 +5,8 @@ use Df\Framework\Form\Element\Checkbox;
 use Df\Framework\Form\Element\Select;
 use Df\Framework\Form\Element\Text;
 use KingPalm\B2B\Renderer;
+use Magento\Customer\Block\Form\Register;
+use Magento\Customer\Block\Widget\Taxvat;
 use Magento\Framework\Data\Form;
 use Magento\Framework\Data\Form\Element\AbstractElement as AE;
 use Magento\Framework\View\Element\Template as _P;
@@ -45,6 +47,23 @@ class Registration extends _P {
 	function select($id, $label, array $o) {return $this->e(Select::class, $id, $label, [
 		'values' => df_a_to_options($o)
 	]);}
+
+	/**
+	 * 2019-05-31 Currently, it is not used.
+	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
+	 * @return string|null
+	 */
+	function tax() {
+		$b = $this->getLayout()->createBlock(Taxvat::class); /** @var Taxvat $b */
+		$taxvat['taxvat'] = $this->v('taxvat');
+		/**
+		 * 2019-05-31
+		 * If the block is enabled, then it is already rendered by the standard Magento code:
+		 * https://github.com/magento/magento2/blob/2.3.1/app/code/Magento/Customer/view/frontend/templates/form/register.phtml#L35-L38
+		 * So we do not render it in this case.
+		 */
+		return $b->isEnabled() ? null : $b->toHtml();
+	}
 
 	/**
 	 * 2019-05-30
@@ -89,4 +108,15 @@ class Registration extends _P {
 	 * @return Renderer
 	 */
 	private function r() {return dfc($this, function() {return new Renderer;});}
+
+	/**
+	 * 2019-05-31
+	 * @used-by tax()
+	 * @param string $k
+	 * @return string|null
+	 */
+	private function v($k) {return dfc($this, function() {
+		$b = df_layout()->getBlock('customer_form_register'); /** @var Register $b */
+		return $b->getFormData();
+	})[$k];}
 }
