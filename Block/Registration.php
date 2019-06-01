@@ -4,6 +4,7 @@ use Df\Framework\Form\Element as E;
 use Df\Framework\Form\Element\Checkbox;
 use Df\Framework\Form\Element\Select;
 use Df\Framework\Form\Element\Text;
+use Df\Framework\Form\Element\Textarea;
 use KingPalm\B2B\Renderer;
 use Magento\Customer\Block\Form\Register;
 use Magento\Customer\Block\Widget\Taxvat;
@@ -25,7 +26,7 @@ class Registration extends _P {
 	function cb($id, $label) {return $this->e(Checkbox::class, $id, $label);}
 
 	/**
-	 * 2019-05-31
+	 * 2019-05-31 Currently, it is not used.
 	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
 	 * @param string $id
 	 * @param string $label
@@ -72,6 +73,16 @@ class Registration extends _P {
 	 * @return string
 	 */
 	function text($id, $label, $d = []) {return $this->e(Text::class, $id, $label, $d);}
+
+	/**
+	 * 2019-05-31
+	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
+	 * @param string $id
+	 * @param string $label
+	 * @param array(string => mixed) $d [optional]
+	 * @return string
+	 */
+	function textarea($id, $label) {return $this->e(Textarea::class, $id, $label);}
 
 	/**
 	 * 2019-05-30

@@ -12,7 +12,9 @@ $b = $block; /** @var KingPalm\B2B\Block\Registration $b */
 			,'Convenience/Liquor/Grocery Store', 'Distributor/Wholesaler', 'Gift/Novelty Shop'
 			,'Hookah Lounge/Store', 'Tobacco Store', 'Tattoo Parlor', 'Processor'
 		])
-		,$b->inline('number_of_locations', 'Number of Locations')
-		,$b->inline('tax', 'TAX ID')
+		,$b->text('number_of_locations', 'Number of Locations')
+		,$b->text('tax', 'TAX ID')
+		,$b->text('phone', 'Phone Number')
+		,$b->textarea('address', 'Storefront Business Address')
 	) ?>
 </div>
