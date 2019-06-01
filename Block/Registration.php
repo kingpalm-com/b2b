@@ -44,6 +44,55 @@ class Registration extends _P {
 	function inline($id, $label) {return $this->e(Text::class, $id, $label, ['class' => 'df-inline']);}
 
 	/**
+	 * 2019-06-01
+	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
+	 * @return string
+	 */
+	function region() {return df_tag('div', 'field region required', [
+		df_tag('label', ['class' => 'label', 'for' => 'region_id'],
+			df_tag('span', [], 'State/Province')
+		)
+		,df_tag('div', 'control', [
+			df_tag('select',
+				[
+					'class' => 'validate-select'
+					,'disabled' => 'disabled'
+					,'id' => 'region_id'
+					,'name' => 'region_id'
+				],
+				df_tag('option', ['value' => ''], 'Please select a region, state or province.')
+			)
+			,df_tag('input', [
+				'class' =>
+					df_cc_s('input-text validate-not-number-first',
+						df_address_h()->getAttributeValidationClass('region')
+					)
+				,'disabled' => 'disabled'
+				,'id' => 'region'
+				,'name' => 'region'
+				,'type' => 'text'
+				,'value' => ''
+			])
+		])
+	]);}
+
+	/**
+	 * 2019-06-01
+	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
+	 * @return string
+	 */
+	function regionJS() {return df_js_x(['#kingpalm-b2b-registration-country' => ['regionUpdater' => [
+		'countriesWithOptionalZip' => df_directory()->getCountriesWithOptionalZip(true)
+		,'defaultRegion' => 0
+		,'form' => '#form-validate'
+		,'optionalRegionAllowed' => false
+		,'postcodeId' => '#kingpalm-b2b-registration-postcode'
+		,'regionInputId' => '#region'
+		,'regionJson' => df_json_decode(df_directory()->getRegionJson())
+		,'regionListId' => '#region_id'
+	]]]);}
+
+	/**
 	 * 2019-05-30
 	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
 	 * @param string $id
