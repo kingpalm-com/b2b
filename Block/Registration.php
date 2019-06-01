@@ -3,7 +3,7 @@ namespace KingPalm\B2B\Block;
 use Df\Directory\FE\Country;
 use Df\Framework\Form\Element as E;
 use Df\Framework\Form\Element\Checkbox;
-use Df\Framework\Form\Element\Select;
+use Df\Framework\Form\Element\Select2;
 use Df\Framework\Form\Element\Text;
 use Df\Framework\Form\Element\Textarea;
 use KingPalm\B2B\Renderer;
@@ -51,7 +51,7 @@ class Registration extends _P {
 	 * @param string[]
 	 * @return string[] $o
 	 */
-	function select($id, $label, array $o) {return $this->e(Select::class, $id, $label, [
+	function select($id, $label, array $o) {return $this->e(Select2::class, $id, $label, [
 		'values' => df_a_to_options($o)
 	]);}
 
