@@ -48,30 +48,20 @@ class Registration extends _P {
 	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
 	 * @return string
 	 */
-	function region() {return df_tag('div', 'field region required', [
-		df_tag('label', ['class' => 'label', 'for' => 'region_id'],
-			df_tag('span', [], 'State/Province')
+	function region() {return df_tag('div', 'df-field region required', [
+		df_tag('label', ['class' => 'addbefore', 'for' => 'region_id'], 'State/Province')
+		,df_tag('select',
+			['class' => 'validate-select', 'id' => 'region_id', 'name' => 'region_id']
+			,df_tag('option', ['value' => ''], 'Please select a region, state or province.')
 		)
-		,df_tag('div', 'control', [
-			df_tag('select',
-				[
-					'class' => 'validate-select'
-					,'disabled' => 'disabled'
-					,'id' => 'region_id'
-					,'name' => 'region_id'
-				],
-				df_tag('option', ['value' => ''], 'Please select a region, state or province.')
+		,df_tag('input', [
+			'class' => df_cc_s('input-text validate-not-number-first',
+				df_address_h()->getAttributeValidationClass('region')
 			)
-			,df_tag('input', [
-				'class' =>
-					df_cc_s('input-text validate-not-number-first',
-						df_address_h()->getAttributeValidationClass('region')
-					)
-				,'id' => 'region'
-				,'name' => 'region'
-				,'type' => 'text'
-				,'value' => ''
-			])
+			,'id' => 'region'
+			,'name' => 'region'
+			,'type' => 'text'
+			,'value' => ''
 		])
 	]);}
 
