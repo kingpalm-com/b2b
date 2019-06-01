@@ -1,5 +1,6 @@
 <?php
 namespace KingPalm\B2B\Block;
+use Df\Directory\FE\Country;
 use Df\Framework\Form\Element as E;
 use Df\Framework\Form\Element\Checkbox;
 use Df\Framework\Form\Element\Select;
@@ -24,6 +25,13 @@ class Registration extends _P {
 	 * @return string
 	 */
 	function cb($id, $label) {return $this->e(Checkbox::class, $id, $label);}
+
+	/**
+	 * 2019-06-01
+	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
+	 * @return string
+	 */
+	function country() {return $this->e(Country::class, 'country', 'Country');}
 
 	/**
 	 * 2019-05-31 Currently, it is not used.
@@ -79,7 +87,6 @@ class Registration extends _P {
 	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
 	 * @param string $id
 	 * @param string $label
-	 * @param array(string => mixed) $d [optional]
 	 * @return string
 	 */
 	function textarea($id, $label) {return $this->e(Textarea::class, $id, $label);}
@@ -87,8 +94,10 @@ class Registration extends _P {
 	/**
 	 * 2019-05-30
 	 * @used-by cb()
+	 * @used-by country()
 	 * @used-by inline()
 	 * @used-by text()
+	 * @used-by textarea()
 	 * @param string $c
 	 * @param string $id
 	 * @param string $label
