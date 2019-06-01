@@ -67,7 +67,6 @@ class Registration extends _P {
 					df_cc_s('input-text validate-not-number-first',
 						df_address_h()->getAttributeValidationClass('region')
 					)
-				,'disabled' => 'disabled'
 				,'id' => 'region'
 				,'name' => 'region'
 				,'type' => 'text'
@@ -85,7 +84,7 @@ class Registration extends _P {
 		'countriesWithOptionalZip' => df_directory()->getCountriesWithOptionalZip(true)
 		,'defaultRegion' => 0
 		,'form' => '#form-validate'
-		,'optionalRegionAllowed' => false
+		,'optionalRegionAllowed' => true
 		,'postcodeId' => '#kingpalm-b2b-registration-postcode'
 		,'regionInputId' => '#region'
 		,'regionJson' => df_json_decode(df_directory()->getRegionJson())
