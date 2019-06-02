@@ -53,7 +53,7 @@ class Registration extends _P {
 				)
 				,$this->text('number_of_locations', 'Number of Locations')
 				,$this->text('tax', 'TAX ID')
-				,$this->text('phone', 'Phone Number', ['placeholder' => '(888) 555-5555'])
+				,$this->text('phone', 'Phone Number', '(888) 555-5555')
 				,$this->textarea('address', 'Storefront Business Address')
 				,$this->text('city', 'City')
 				,$this->text('postcode', 'Zip Code')
@@ -189,10 +189,13 @@ class Registration extends _P {
 	 * @used-by _toHtml()
 	 * @param string $id
 	 * @param string $label
+	 * @param string $placeholder [optional]
 	 * @param array(string => mixed) $d [optional]
 	 * @return string
 	 */
-	private function text($id, $label, $d = []) {return $this->e(Text::class, $id, $label, $d);}
+	private function text($id, $label, $placeholder = '', $d = []) {return $this->e(
+		Text::class, $id, $label, $d + df_clean(['placeholder' => $placeholder])
+	);}
 
 	/**
 	 * 2019-05-31
