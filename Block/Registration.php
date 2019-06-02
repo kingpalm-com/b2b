@@ -38,27 +38,29 @@ class Registration extends _P {
 	 */
 	final protected function _toHtml() {return df_tag('div', 'kingpalm-b2b-registration', [
 		$this->cb('is_business', 'Retail Registration?')
-		,$this->text('name', 'Business Name')
-		,$this->text('dba', 'DBA (Doing Business As)')
-		,$this->select('type', 'What type of business do you run?',
-			[
-				'', 'Smoke Shop', 'Dispensary', 'Vape Shop', 'Adult Store', 'Gas Station'
-				,'Convenience/Liquor/Grocery Store', 'Distributor/Wholesaler', 'Gift/Novelty Shop'
-				,'Hookah Lounge/Store', 'Tobacco Store', 'Tattoo Parlor', 'Processor'
-			]
-			,['placeholder' => 'Please Select']
-		)
-		,$this->text('number_of_locations', 'Number of Locations')
-		,$this->text('tax', 'TAX ID')
-		,$this->text('phone', 'Phone Number')
-		,$this->textarea('address', 'Storefront Business Address')
-		,$this->text('city', 'City')
-		,$this->text('postcode', 'Zip Code')
-		,$this->region()
-		,$this->regionJS()
-		,$this->country()
-		,$this->textarea('notes', 'Notes')
-	]);}
+		,df_tag('div', 'kingpalm-toggle'), [
+			$this->text('name', 'Business Name')
+			,$this->text('dba', 'DBA (Doing Business As)')
+			,$this->select('type', 'What type of business do you run?',
+				[
+					'', 'Smoke Shop', 'Dispensary', 'Vape Shop', 'Adult Store', 'Gas Station'
+					,'Convenience/Liquor/Grocery Store', 'Distributor/Wholesaler', 'Gift/Novelty Shop'
+					,'Hookah Lounge/Store', 'Tobacco Store', 'Tattoo Parlor', 'Processor'
+				]
+				,['placeholder' => 'Please Select']
+			)
+			,$this->text('number_of_locations', 'Number of Locations')
+			,$this->text('tax', 'TAX ID')
+			,$this->text('phone', 'Phone Number')
+			,$this->textarea('address', 'Storefront Business Address')
+			,$this->text('city', 'City')
+			,$this->text('postcode', 'Zip Code')
+			,$this->region()
+			,$this->regionJS()
+			,$this->country()
+			,$this->textarea('notes', 'Notes')
+		]
+	]) . df_js($this);}
 
 	/**
 	 * 2019-05-30
