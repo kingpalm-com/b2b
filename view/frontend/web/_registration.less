@@ -21,7 +21,9 @@
 		}
 		&.df-inline label.addbefore {padding-right: 0.75em;}
 		select {width: 100%;}
-		// 2019-06-02 https://stackoverflow.com/a/38717203
+		// 2019-06-02
+		// Select2 wrongly initializes its width if the element is initialliy hidden.
+		// My rule solves the problem: https://stackoverflow.com/a/38717203
 		.select2-container {width: 100% !important;}
 		.select2-container--disabled {display: none;}
 		.select2-selection--single {
