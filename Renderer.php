@@ -20,7 +20,7 @@ class Renderer implements IRenderer {
 	 */
 	function render(AE $e) {
 		$labelAtRight = E::shouldLabelBeAtRight($e); /** @var bool $labelAtRight */
-		$innerA = [$this->label($e), $e->getElementHtml()];  /** @var string[] $innerA */
+		$innerA = [$this->label($e), $e->getElementHtml(), $e['after']];  /** @var string[] $innerA */
 		if ($labelAtRight) {
 			$innerA = array_reverse($innerA);
 		}

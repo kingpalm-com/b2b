@@ -7,19 +7,22 @@ $b = $block; /** @var KingPalm\B2B\Block\Registration $b */
 		$b->cb('is_business', 'Retail Registration?')
 		,$b->text('name', 'Business Name')
 		,$b->text('dba', 'DBA (Doing Business As)')
-		,$b->select('type', 'What type of business do you run?', [
-			'Smoke Shop', 'Dispensary', 'Vape Shop', 'Adult Store', 'Gas Station'
-			,'Convenience/Liquor/Grocery Store', 'Distributor/Wholesaler', 'Gift/Novelty Shop'
-			,'Hookah Lounge/Store', 'Tobacco Store', 'Tattoo Parlor', 'Processor'
-		])
+		,$b->select('type', 'What type of business do you run?',
+			[
+				'', 'Smoke Shop', 'Dispensary', 'Vape Shop', 'Adult Store', 'Gas Station'
+				,'Convenience/Liquor/Grocery Store', 'Distributor/Wholesaler', 'Gift/Novelty Shop'
+				,'Hookah Lounge/Store', 'Tobacco Store', 'Tattoo Parlor', 'Processor'
+			]
+			,['placeholder' => 'Please Select']
+		)
 		,$b->text('number_of_locations', 'Number of Locations')
 		,$b->text('tax', 'TAX ID')
 		,$b->text('phone', 'Phone Number')
 		,$b->textarea('address', 'Storefront Business Address')
 		,$b->text('city', 'City')
 		,$b->text('postcode', 'Zip Code')
-		,$b->country()
 		,$b->region()
 		,$b->regionJS()
+		,$b->country()
 	) ?>
 </div>

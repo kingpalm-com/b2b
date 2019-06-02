@@ -48,14 +48,14 @@ class Registration extends _P {
 	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
 	 * @return string
 	 */
-	function region() {return df_tag('div', 'df-field region required', [
+	function region0() {return df_tag('div', 'df-field region required', [
 		df_tag('label', ['class' => 'addbefore', 'for' => 'region_id'], 'State/Province')
 		,df_tag('select',
 			['class' => 'validate-select', 'id' => 'region_id', 'name' => 'region_id']
 			,df_tag('option', ['value' => ''], 'Please select a region, state or province.')
 		)
 		,df_tag('input', [
-			'class' => df_cc_s('input-text validate-not-number-first',
+			'class' => df_cc_s('validate-not-number-first',
 				df_address_h()->getAttributeValidationClass('region')
 			)
 			,'id' => 'region'
@@ -70,15 +70,33 @@ class Registration extends _P {
 	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
 	 * @return string
 	 */
+	function region() {return $this->e(Select2::class, 'region_id', 'State/Province', [
+		'after' => df_tag('input', [
+			'class' => df_cc_s('validate-not-number-first',
+				df_address_h()->getAttributeValidationClass('region')
+			)
+			,'id' => 'kingpalm-b2b-registration-region'
+			,'name' => 'kingpalm_business_region'
+			,'type' => 'text'
+		])
+		,Select2::EXTRA => ['placeholder' => 'Please select a region, state or province.']
+		,'values' => df_a_to_options([''])
+	]);}
+
+	/**
+	 * 2019-06-01
+	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
+	 * @return string
+	 */
 	function regionJS() {return df_js_x(['#kingpalm-b2b-registration-country' => ['regionUpdater' => [
 		'countriesWithOptionalZip' => df_directory()->getCountriesWithOptionalZip(true)
-		,'defaultRegion' => 0
+		,'defaultRegion' => ''
 		,'form' => '#form-validate'
 		,'optionalRegionAllowed' => true
 		,'postcodeId' => '#kingpalm-b2b-registration-postcode'
-		,'regionInputId' => '#region'
+		,'regionInputId' => '#kingpalm-b2b-registration-region'
 		,'regionJson' => df_json_decode(df_directory()->getRegionJson())
-		,'regionListId' => '#region_id'
+		,'regionListId' => '#kingpalm-b2b-registration-region_id'
 	]]]);}
 
 	/**
@@ -86,11 +104,12 @@ class Registration extends _P {
 	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
 	 * @param string $id
 	 * @param string $label
-	 * @param string[]
-	 * @return string[] $o
+	 * @param string[] $o
+	 * @param array(string => mixed) $extra [optional]
+	 * @return string[]
 	 */
-	function select($id, $label, array $o) {return $this->e(Select2::class, $id, $label, [
-		'values' => df_a_to_options($o)
+	function select($id, $label, array $o, $extra = []) {return $this->e(Select2::class, $id, $label, [
+		Select2::EXTRA => $extra, 'values' => df_a_to_options($o)
 	]);}
 
 	/**
