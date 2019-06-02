@@ -14,7 +14,7 @@ class Renderer implements IRenderer {
 	 * @final Unable to use the PHP «final» keyword here because of the M2 code generation.
 	 * @override
 	 * @see \Magento\Framework\Data\Form\Element\Renderer\RendererInterface::render()
-	 * @used-by vendor/kingpalm/b2b/view/frontend/templates/registration.phtml
+	 * @used-by \KingPalm\B2B\Block\Registration::r()
 	 * @param AE|E $e
 	 * @return string
 	 */
