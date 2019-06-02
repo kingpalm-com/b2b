@@ -40,7 +40,7 @@ class Registration extends _P {
 		,df_widget($this) + ['class' => 'kingpalm-b2b-registration']
 		,[
 			$this->cb('is_business', 'Retail Registration?')
-			,df_tag('div', 'toggled df-hidden', [
+			,df_tag('div', df_cc_s('toggled', df_my() ? null : 'df-hidden'), [
 				$this->text('name', 'Business Name')
 				,$this->text('dba', 'DBA (Doing Business As)')
 				,$this->select('type', 'What type of business do you run?',
@@ -53,7 +53,7 @@ class Registration extends _P {
 				)
 				,$this->text('number_of_locations', 'Number of Locations')
 				,$this->text('tax', 'TAX ID')
-				,$this->text('phone', 'Phone Number')
+				,$this->text('phone', 'Phone Number', ['placeholder' => '(888) 555-5555'])
 				,$this->textarea('address', 'Storefront Business Address')
 				,$this->text('city', 'City')
 				,$this->text('postcode', 'Zip Code')
