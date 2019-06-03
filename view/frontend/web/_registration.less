@@ -10,7 +10,6 @@
 		input {
 			font-family: Conv_ProximaNova-Regular;
 			font-size: 15px;
-			&::placeholder {color: rgb(153, 153, 153);}
 			&[type=checkbox] {
 				position: relative; top: 1px;
 				& + label.addafter {margin-left: 0.5em;}
@@ -21,6 +20,7 @@
 				&.tax {width: 10em;}
 			}
 		}
+		input, textarea {&::placeholder {color: rgb(153, 153, 153);}}
 		&.df-inline label.addbefore {padding-right: 0.75em;}
 		select {width: 100%;}
 		// 2019-06-02

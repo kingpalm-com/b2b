@@ -49,7 +49,7 @@ class Registration extends _P {
 						,'Convenience/Liquor/Grocery Store', 'Distributor/Wholesaler', 'Gift/Novelty Shop'
 						,'Hookah Lounge/Store', 'Tobacco Store', 'Tattoo Parlor', 'Processor'
 					]
-					,['placeholder' => 'Please Select']
+					,['placeholder' => 'please select']
 				)
 				,$this->text('number_of_locations', 'Number of Locations')
 				,$this->text('tax', 'TAX ID')
@@ -98,7 +98,12 @@ class Registration extends _P {
 		$e = df_new_omd($c,
 			['class' => df_cc_s($id, dfa($d, 'class'))]
 			+ $d
-			+ ['html_id' => $id, 'label' => $label, 'name' => "kingpalm_business_$id"]
+			+ [
+				'html_id' => $id
+				,'label' => $label
+				,'name' => "kingpalm_business_$id"
+				,'placeholder' => 'please enter…'
+			]
 		); /** @var E|AE $e */
 		$e->setForm($this->form());
 		$e->setRenderer($this->r());
@@ -189,11 +194,11 @@ class Registration extends _P {
 	 * @used-by _toHtml()
 	 * @param string $id
 	 * @param string $label
-	 * @param string $placeholder [optional]
+	 * @param string|null $placeholder [optional]
 	 * @param array(string => mixed) $d [optional]
 	 * @return string
 	 */
-	private function text($id, $label, $placeholder = '', $d = []) {return $this->e(
+	private function text($id, $label, $placeholder = null, $d = []) {return $this->e(
 		Text::class, $id, $label, $d + df_clean(['placeholder' => $placeholder])
 	);}
 
