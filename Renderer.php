@@ -7,6 +7,7 @@ use Magento\Framework\Data\Form\Element\Renderer\RendererInterface as IRenderer;
  * 2019-05-30
  * @final Unable to use the PHP «final» keyword here because of the M2 code generation.
  * @see \Df\Framework\Form\Element\Renderer\Inline
+ * @used-by \KingPalm\B2B\Block\Registration::r()
  */
 class Renderer implements IRenderer {
 	/**
@@ -14,7 +15,7 @@ class Renderer implements IRenderer {
 	 * @final Unable to use the PHP «final» keyword here because of the M2 code generation.
 	 * @override
 	 * @see \Magento\Framework\Data\Form\Element\Renderer\RendererInterface::render()
-	 * @used-by \KingPalm\B2B\Block\Registration::r()
+	 * @used-by @used-by \KingPalm\B2B\Block\Registration::e()
 	 * @param AE|E $e
 	 * @return string
 	 */

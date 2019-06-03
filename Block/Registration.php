@@ -86,6 +86,7 @@ class Registration extends _P {
 	 * @used-by cb()
 	 * @used-by country()
 	 * @used-by inline()
+	 * @used-by region()
 	 * @used-by text()
 	 * @used-by textarea()
 	 * @param string $c
