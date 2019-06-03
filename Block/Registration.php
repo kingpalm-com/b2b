@@ -41,26 +41,42 @@ class Registration extends _P {
 		,[
 			$this->cb('is_business', 'Retail Registration?')
 			,df_tag('div', df_cc_s('toggled', df_my() ? null : 'df-hidden'), [
-				$this->text('name', 'Business Name')
-				,$this->text('dba', 'DBA (Doing Business As)')
-				,$this->select('type', 'What type of business do you run?',
-					[
-						'', 'Smoke Shop', 'Dispensary', 'Vape Shop', 'Adult Store', 'Gas Station'
-						,'Convenience/Liquor/Grocery Store', 'Distributor/Wholesaler', 'Gift/Novelty Shop'
-						,'Hookah Lounge/Store', 'Tobacco Store', 'Tattoo Parlor', 'Processor'
-					]
-					,['placeholder' => 'please select']
-				)
-				,$this->text('number_of_locations', 'Number of Locations')
-				,$this->text('tax', 'TAX ID')
-				,$this->text('phone', 'Phone Number', '(888) 555-5555')
-				,$this->textarea('address', 'Storefront Business Address')
-				,$this->text('city', 'City')
-				,$this->text('postcode', 'Zip Code')
-				,$this->region()
-				,$this->regionJS()
-				,$this->country()
-				,$this->textarea('notes', 'Notes')
+				df_tag('div', 'note', [
+					df_tag('div', 'note-block note-block-1', [
+						df_tag('p', [], 'Retail Accounts Are For Storefront Businesses ONLY!')
+						,df_tag('p', [], 'ALL ONLINE STORES (AMAZON, eBAY, ECOMM) WILL ALL BE REJECTED.')
+					])
+					,df_tag('div', 'note-block note-block-2', [
+						df_tag('p', [],
+							'Once approved, you will receive an approval email'
+							.' that will allow you to view pricing and check out.'
+						)
+						,df_tag('p', [], 'Approvals are usually same day (but may take up to 2 days).')
+						,df_tag('p', [], 'Thank you for your business!')
+					])
+				])
+				,df_tag('div', 'toggled-fields', [
+					$this->text('name', 'Business Name')
+					,$this->text('dba', 'DBA (Doing Business As)')
+					,$this->select('type', 'What type of business do you run?',
+						[
+							'', 'Smoke Shop', 'Dispensary', 'Vape Shop', 'Adult Store', 'Gas Station'
+							,'Convenience/Liquor/Grocery Store', 'Distributor/Wholesaler', 'Gift/Novelty Shop'
+							,'Hookah Lounge/Store', 'Tobacco Store', 'Tattoo Parlor', 'Processor'
+						]
+						,['placeholder' => 'please select']
+					)
+					,$this->text('number_of_locations', 'Number of Locations')
+					,$this->text('tax', 'TAX ID')
+					,$this->text('phone', 'Phone Number', '(888) 555-5555')
+					,$this->textarea('address', 'Storefront Business Address')
+					,$this->text('city', 'City')
+					,$this->text('postcode', 'Zip Code')
+					,$this->region()
+					,$this->regionJS()
+					,$this->country()
+					,$this->textarea('notes', 'Notes')
+				])
 			])
 		]
 	);}

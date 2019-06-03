@@ -3,10 +3,25 @@
 // https://github.com/kingpalm-com/b2b/issues/1
 // https://www.upwork.com/ab/f/contracts/22250754
 .kingpalm-b2b-registration {
-	.toggled {margin-top: 1em;}
+	.note {
+		line-height: 1;
+		margin: 1em 0;
+		.note-block {
+			&:not(:first-child) {margin-top: 1em;}
+			&.note-block-1 {font-weight: bold;}
+			p {
+				margin: 0;
+				&:not(:first-child) {margin-top: 0.33em;}
+			}
+		}
+	}
 	.df-field {
 		&:not(:first-child) {margin-top: 1em;}
-		label.addbefore {margin-bottom: 2px;}
+		label {
+			// 2019-06-03 We override a rule from Bootstrap
+			margin-bottom: 0;
+			&.addbefore {margin-bottom: 2px;}
+		}
 		input {
 			font-family: Conv_ProximaNova-Regular;
 			font-size: 15px;
