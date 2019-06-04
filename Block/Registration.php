@@ -118,7 +118,7 @@ class Registration extends _P {
 			+ [
 				'html_id' => $id
 				,'label' => $label
-				,'name' => "kingpalm_business_$id"
+				,'name' => "kingpalm_b2b_$id"
 				,'placeholder' => 'please enter…'
 			]
 		); /** @var E|AE $e */
@@ -132,9 +132,9 @@ class Registration extends _P {
 	 * @used-by e()
 	 * @return Form
 	 */
-	private function form() {return dfc($this, function() {return
-		df_new_omd(Form::class, ['html_id_prefix' => 'kingpalm-b2b-registration-'])
-	;});}
+	private function form() {return dfc($this, function() {return df_new_omd(Form::class, [
+		'html_id_prefix' => self::id()
+	]);});}
 
 	/**
 	 * 2019-05-30
@@ -153,7 +153,7 @@ class Registration extends _P {
 			'class' => df_cc_s('validate-not-number-first',
 				df_address_h()->getAttributeValidationClass('region')
 			)
-			,'id' => 'kingpalm-b2b-registration-region'
+			,'id' => self::id('region')
 			,'name' => 'kingpalm_business_region'
 			,'type' => 'text'
 		])
@@ -166,15 +166,15 @@ class Registration extends _P {
 	 * @used-by _toHtml()
 	 * @return string
 	 */
-	private function regionJS() {return df_js_x(['#kingpalm-b2b-registration-country' => ['regionUpdater' => [
+	private function regionJS() {return df_js_x([self::idS('country') => ['regionUpdater' => [
 		'countriesWithOptionalZip' => df_directory()->getCountriesWithOptionalZip(true)
 		,'defaultRegion' => ''
 		,'form' => '#form-validate'
 		,'optionalRegionAllowed' => true
-		,'postcodeId' => '#kingpalm-b2b-registration-postcode'
-		,'regionInputId' => '#kingpalm-b2b-registration-region'
+		,'postcodeId' => self::idS('postcode')
+		,'regionInputId' => self::idS('region')
 		,'regionJson' => df_json_decode(df_directory()->getRegionJson())
-		,'regionListId' => '#kingpalm-b2b-registration-region_id'
+		,'regionListId' => self::idS('region_id')
 	]]]);}
 
 	/**
@@ -238,4 +238,22 @@ class Registration extends _P {
 		$b = df_layout()->getBlock('customer_form_register'); /** @var Register $b */
 		return $b->getFormData();
 	})[$k];}
+
+	/**
+	 * 2019-06-04
+	 * @used-by form()
+	 * @used-by idS()
+	 * @used-by region()
+	 * @param string $v [optional]
+	 * @return string
+	 */
+	private static function id($v = '') {return "kingpalm-b2b-$v";}
+
+	/**
+	 * 2019-06-04
+	 * @used-by regionJS()
+	 * @param string $v [optional]
+	 * @return string
+	 */
+	private static function idS($v) {return '#' . self::id($v);}
 }
