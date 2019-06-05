@@ -9,7 +9,7 @@ function(c, e) {
 	var $e = $(e);
 	(function() {
 		var $toggled = $('.toggled', $e);
-		$('.is_business', $e).click(function() {
+		$('.enable', $e).click(function() {
 			$toggled.toggleClass('df-hidden');
 		});
 	})();

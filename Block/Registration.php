@@ -7,6 +7,7 @@ use Df\Framework\Form\Element\Select2;
 use Df\Framework\Form\Element\Text;
 use Df\Framework\Form\Element\Textarea;
 use KingPalm\B2B\Renderer;
+use KingPalm\B2B\Schema as S;
 use Magento\Customer\Block\Form\Register;
 use Magento\Customer\Block\Widget\Taxvat;
 use Magento\Framework\Data\Form;
@@ -39,7 +40,7 @@ class Registration extends _P {
 	final protected function _toHtml() {return df_tag('div'
 		,df_widget($this) + ['class' => 'kingpalm-b2b-registration']
 		,[
-			$this->cb('is_business', 'Retail Registration?')
+			$this->cb(S::enable(), S::enable(true))
 			,df_tag('div', df_cc_s('toggled', df_my() ? null : 'df-hidden'), [
 				df_tag('div', 'note', [
 					df_tag('div', 'note-block note-block-1', [
@@ -56,7 +57,7 @@ class Registration extends _P {
 					])
 				])
 				,df_tag('div', 'toggled-fields', [
-					$this->text('name', 'Business Name')
+					$this->text(S::name(), S::name(true))
 					,$this->text('dba', 'DBA (Doing Business As)')
 					,$this->select('type', 'What type of business do you run?',
 						[
@@ -115,12 +116,7 @@ class Registration extends _P {
 		$e = df_new_omd($c,
 			['class' => df_cc_s($id, dfa($d, 'class'))]
 			+ $d
-			+ [
-				'html_id' => $id
-				,'label' => $label
-				,'name' => "kingpalm_b2b_$id"
-				,'placeholder' => 'please enter…'
-			]
+			+ ['html_id' => $id, 'label' => $label, 'name' => $id, 'placeholder' => 'please enter…']
 		); /** @var E|AE $e */
 		$e->setForm($this->form());
 		$e->setRenderer($this->r());

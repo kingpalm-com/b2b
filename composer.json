@@ -11,7 +11,7 @@
 		,"homepage": "https://mage2.pro/users/dmitry_fedyuk"
 		,"role": "Developer"
 	}]
-	,"require": {"mage2pro/core": ">=4.5.8", "kingpalm/core": ">=0.0.1"}
+	,"require": {"mage2pro/core": ">=4.6.7", "kingpalm/core": ">=0.0.1"}
 	,"autoload": {"files": ["registration.php"], "psr-4": {"KingPalm\\B2B\\": ""}}
 	,"keywords": ["Magento 2"]
 }
