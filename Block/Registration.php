@@ -8,6 +8,7 @@ use Df\Framework\Form\Element\Text;
 use Df\Framework\Form\Element\Textarea;
 use KingPalm\B2B\Renderer;
 use KingPalm\B2B\Schema as S;
+use KingPalm\B2B\Source\Type as sType;
 use Magento\Customer\Block\Form\Register;
 use Magento\Customer\Block\Widget\Taxvat;
 use Magento\Framework\Data\Form;
@@ -58,14 +59,12 @@ class Registration extends _P {
 				])
 				,df_tag('div', 'toggled-fields', [
 					$this->text(S::name(), S::name(true))
-					,$this->text('dba', 'DBA (Doing Business As)')
-					,$this->select('type', 'What type of business do you run?',
-						[
-							'', 'Smoke Shop', 'Dispensary', 'Vape Shop', 'Adult Store', 'Gas Station'
-							,'Convenience/Liquor/Grocery Store', 'Distributor/Wholesaler', 'Gift/Novelty Shop'
-							,'Hookah Lounge/Store', 'Tobacco Store', 'Tattoo Parlor', 'Processor'
-						]
-						,['placeholder' => 'please select']
+					,$this->text(S::dba(), S::dba(true))
+					,$this->select(
+						S::type()
+						,'What type of business do you run?'
+						,sType::s()->keys()
+						,['placeholder' => sType::PLACEHOLDER]
 					)
 					,$this->text('number_of_locations', 'Number of Locations')
 					,$this->text('tax', 'TAX ID')

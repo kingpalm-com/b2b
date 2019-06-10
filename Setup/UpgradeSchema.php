@@ -13,8 +13,10 @@ class UpgradeSchema extends \Df\Framework\Upgrade\Schema {
 	 */
 	final protected function _process() {
 		if ($this->isInitial()) {
-			df_dbc_c(S::name(), S::name(true));
 			df_dbc_c(S::enable(), T::bool(S::enable(true)));
+			df_dbc_c(S::name(), S::name(true));
+			df_dbc_c(S::dba(), S::dba(true));
+			df_dbc_c(S::type(), S::type(true));
 		}
 	}
 }
