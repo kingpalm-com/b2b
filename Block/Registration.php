@@ -6,6 +6,7 @@ use Df\Framework\Form\Element\Checkbox;
 use Df\Framework\Form\Element\Select2;
 use Df\Framework\Form\Element\Text;
 use Df\Framework\Form\Element\Textarea;
+use KingPalm\B2B\Form as F;
 use KingPalm\B2B\Renderer;
 use KingPalm\B2B\Schema as S;
 use KingPalm\B2B\Source\Type as sType;
@@ -73,7 +74,7 @@ class Registration extends _P {
 					,$this->text(S::city(), S::city(true))
 					,$this->text(S::postcode(), S::postcode(true))
 					,$this->region()
-					,$this->regionJS()
+					,df_block_output(RegionJS::class)
 					,$this->e(Country::class, S::country(), S::country(true))
 					,$this->textarea(S::notes(), S::notes(true))
 				])
@@ -120,7 +121,7 @@ class Registration extends _P {
 	 * @return Form
 	 */
 	private function form() {return dfc($this, function() {return df_new_omd(Form::class, [
-		'html_id_prefix' => self::id()
+		'html_id_prefix' => F::id()
 	]);});}
 
 	/**
@@ -135,34 +136,16 @@ class Registration extends _P {
 	 * @used-by _toHtml()
 	 * @return string
 	 */
-	private function region() {return $this->e(Select2::class, 'region_id', 'State/Province', [
+	private function region() {return $this->e(Select2::class, S::region_id(), S::region_id(true), [
 		'after' => df_tag('input', [
 			'class' => df_cc_s('validate-not-number-first',
 				df_address_h()->getAttributeValidationClass('region')
 			)
-			,'id' => self::id('region')
-			,'name' => 'kingpalm_business_region'
-			,'type' => 'text'
+			,'id' => F::id('region'), 'name' => S::region(), 'type' => 'text'
 		])
 		,Select2::EXTRA => ['placeholder' => 'Please select a region, state or province.']
 		,'values' => df_a_to_options([''])
 	]);}
-
-	/**
-	 * 2019-06-01
-	 * @used-by _toHtml()
-	 * @return string
-	 */
-	private function regionJS() {return df_js_x([self::idS('country') => ['regionUpdater' => [
-		'countriesWithOptionalZip' => df_directory()->getCountriesWithOptionalZip(true)
-		,'defaultRegion' => ''
-		,'form' => '#form-validate'
-		,'optionalRegionAllowed' => true
-		,'postcodeId' => self::idS('postcode')
-		,'regionInputId' => self::idS('region')
-		,'regionJson' => df_json_decode(df_directory()->getRegionJson())
-		,'regionListId' => self::idS('region_id')
-	]]]);}
 
 	/**
 	 * 2019-05-30
@@ -225,22 +208,4 @@ class Registration extends _P {
 		$b = df_layout()->getBlock('customer_form_register'); /** @var Register $b */
 		return $b->getFormData();
 	})[$k];}
-
-	/**
-	 * 2019-06-04
-	 * @used-by form()
-	 * @used-by idS()
-	 * @used-by region()
-	 * @param string $v [optional]
-	 * @return string
-	 */
-	private static function id($v = '') {return "kingpalm-b2b-$v";}
-
-	/**
-	 * 2019-06-04
-	 * @used-by regionJS()
-	 * @param string $v [optional]
-	 * @return string
-	 */
-	private static function idS($v) {return '#' . self::id($v);}
 }

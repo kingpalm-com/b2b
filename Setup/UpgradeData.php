@@ -4,7 +4,9 @@ use Df\Customer\AddAttribute\Customer as Add;
 use KingPalm\B2B\Schema as S;
 use KingPalm\B2B\Source\Type as sType;
 use Magento\Customer\Model\Attribute\Data\Postcode as dPostcode;
+use Magento\Customer\Model\ResourceModel\Address\Attribute\Backend\Region as bRegion;
 use Magento\Customer\Model\ResourceModel\Address\Attribute\Source\Country as sCountry;
+use Magento\Customer\Model\ResourceModel\Address\Attribute\Source\Region as sRegion;
 // 2019-06-04
 /** @final Unable to use the PHP «final» keyword here because of the M2 code generation. */
 class UpgradeData extends \Df\Framework\Upgrade\Data {
@@ -29,6 +31,8 @@ class UpgradeData extends \Df\Framework\Upgrade\Data {
 			// I have setup the `data` key by analogy with:
 			// https://github.com/magento/magento2/blob/2.3.1/app/code/Magento/Customer/Setup/CustomerSetup.php#L450-L459
 			Add::text(S::postcode(), S::postcode(true), ['data' => dPostcode::class]);
+			Add::hidden(S::region(), S::region(true), ['backend' => bRegion::class]);
+			Add::select(S::region_id(), S::region_id(true), sRegion::class);
 			Add::select(S::country(), S::country(true), sCountry::class);
 			Add::textarea(S::notes(), S::notes(true));
 		}

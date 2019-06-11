@@ -101,6 +101,26 @@ final class Schema {
 	 * @return string
 	 */
 	static function postcode($l = false) {return !$l ? self::f() : 'Zip Code';}
+	
+	/**
+	 * 2019-06-11
+	 * @used-by \KingPalm\B2B\Block\Registration::region()
+	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()
+	 * @used-by \KingPalm\B2B\Setup\UpgradeSchema::_process()
+	 * @param bool $l [optional]
+	 * @return string
+	 */
+	static function region($l = false) {return !$l ? self::f() : 'State/Province';}	
+
+	/**
+	 * 2019-06-11
+	 * @used-by \KingPalm\B2B\Block\Registration::region()
+	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()
+	 * @used-by \KingPalm\B2B\Setup\UpgradeSchema::_process()
+	 * @param bool $l [optional]
+	 * @return string
+	 */
+	static function region_id($l = false) {return !$l ? self::f() : 'State/Province';}
 
 	/**
 	 * 2019-06-11
