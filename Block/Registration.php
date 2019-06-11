@@ -74,7 +74,7 @@ class Registration extends _P {
 					,$this->text(S::postcode(), S::postcode(true))
 					,$this->region()
 					,$this->regionJS()
-					,$this->country()
+					,$this->e(Country::class, S::country(), S::country(true))
 					,$this->textarea(S::notes(), S::notes(true))
 				])
 			])
@@ -91,16 +91,8 @@ class Registration extends _P {
 	private function cb($id, $label) {return $this->e(Checkbox::class, $id, $label);}
 
 	/**
-	 * 2019-06-01
-	 * @used-by _toHtml()
-	 * @return string
-	 */
-	private function country() {return $this->e(Country::class, 'country', 'Country');}
-
-	/**
 	 * 2019-05-30
 	 * @used-by cb()
-	 * @used-by country()
 	 * @used-by inline()
 	 * @used-by region()
 	 * @used-by text()

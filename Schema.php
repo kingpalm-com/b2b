@@ -21,6 +21,16 @@ final class Schema {
 	 * @return string
 	 */
 	static function city($l = false) {return !$l ? self::f() : 'City';}
+	
+	/**
+	 * 2019-06-11
+	 * @used-by \KingPalm\B2B\Block\Registration::_toHtml()
+	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()
+	 * @used-by \KingPalm\B2B\Setup\UpgradeSchema::_process()
+	 * @param bool $l [optional]
+	 * @return string
+	 */
+	static function country($l = false) {return !$l ? self::f() : 'Country';}	
 
 	/**
 	 * 2019-06-10
