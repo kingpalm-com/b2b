@@ -18,6 +18,9 @@ class UpgradeData extends \Df\Framework\Upgrade\Data {
 			Add::text(S::name(), S::name(true));
 			Add::text(S::dba(), S::dba(true));
 			Add::select(S::type(), S::type(true), Type::class);
+			Add::text(S::number_of_locations(), S::number_of_locations(true));
+			Add::text(S::tax(), S::tax(true));
+			Add::text(S::phone(), S::phone(true));
 		}
 	}
 }

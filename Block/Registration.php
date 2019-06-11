@@ -62,13 +62,13 @@ class Registration extends _P {
 					,$this->text(S::dba(), S::dba(true))
 					,$this->select(
 						S::type()
-						,'What type of business do you run?'
-						,sType::s()->keys()
-						,['placeholder' => sType::PLACEHOLDER]
+						,S::type(true)
+						,sType::s()->keys(),
+						['placeholder' => 'please select']
 					)
-					,$this->text('number_of_locations', 'Number of Locations')
-					,$this->text('tax', 'TAX ID')
-					,$this->text('phone', 'Phone Number', '(888) 555-5555')
+					,$this->text(S::number_of_locations(), S::number_of_locations(true))
+					,$this->text(S::tax(), S::tax(true))
+					,$this->text(S::phone(), S::phone(true), '(888) 555-5555')
 					,$this->textarea('address', 'Storefront Business Address')
 					,$this->text('city', 'City')
 					,$this->text('postcode', 'Zip Code')

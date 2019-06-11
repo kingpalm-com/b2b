@@ -17,6 +17,9 @@ class UpgradeSchema extends \Df\Framework\Upgrade\Schema {
 			df_dbc_c(S::name(), S::name(true));
 			df_dbc_c(S::dba(), S::dba(true));
 			df_dbc_c(S::type(), S::type(true));
+			df_dbc_c(S::number_of_locations(), S::number_of_locations(true));
+			df_dbc_c(S::tax(), S::tax(true));
+			df_dbc_c(S::phone(), S::phone(true));
 		}
 	}
 }

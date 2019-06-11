@@ -33,6 +33,36 @@ final class Schema {
 	static function name($l = false) {return !$l ? self::f() : 'Business Name';}
 
 	/**
+	 * 2019-06-11
+	 * @used-by \KingPalm\B2B\Block\Registration::_toHtml()
+	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()
+	 * @used-by \KingPalm\B2B\Setup\UpgradeSchema::_process()
+	 * @param bool $l [optional]
+	 * @return string
+	 */
+	static function number_of_locations($l = false) {return !$l ? self::f() : 'Number of Locations';}
+
+	/**
+	 * 2019-06-11
+	 * @used-by \KingPalm\B2B\Block\Registration::_toHtml()
+	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()
+	 * @used-by \KingPalm\B2B\Setup\UpgradeSchema::_process()
+	 * @param bool $l [optional]
+	 * @return string
+	 */
+	static function phone($l = false) {return !$l ? self::f() : 'Phone Number';}
+
+	/**
+	 * 2019-06-11
+	 * @used-by \KingPalm\B2B\Block\Registration::_toHtml()
+	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()
+	 * @used-by \KingPalm\B2B\Setup\UpgradeSchema::_process()
+	 * @param bool $l [optional]
+	 * @return string
+	 */
+	static function tax($l = false) {return !$l ? self::f() : 'Tax ID';}
+
+	/**
 	 * 2019-06-10
 	 * @used-by \KingPalm\B2B\Block\Registration::_toHtml()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()
@@ -44,7 +74,12 @@ final class Schema {
 
 	/**
 	 * 2019-06-04
+	 * @used-by dba()
+	 * @used-by enable()
 	 * @used-by name()
+	 * @used-by number_of_locations()
+	 * @used-by tax()
+	 * @used-by type()
 	 * @return string
 	 */
 	private static function f() {return 'kingpalm_b2b_' . df_caller_f();}
