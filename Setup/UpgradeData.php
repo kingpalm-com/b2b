@@ -21,6 +21,7 @@ class UpgradeData extends \Df\Framework\Upgrade\Data {
 			Add::text(S::number_of_locations(), S::number_of_locations(true));
 			Add::text(S::tax(), S::tax(true));
 			Add::text(S::phone(), S::phone(true));
+			Add::textarea(S::address(), S::address(true));
 		}
 	}
 }

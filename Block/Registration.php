@@ -69,7 +69,7 @@ class Registration extends _P {
 					,$this->text(S::number_of_locations(), S::number_of_locations(true))
 					,$this->text(S::tax(), S::tax(true))
 					,$this->text(S::phone(), S::phone(true), '(888) 555-5555')
-					,$this->textarea('address', 'Storefront Business Address')
+					,$this->textarea(S::address(), S::address(true))
 					,$this->text('city', 'City')
 					,$this->text('postcode', 'Zip Code')
 					,$this->region()
