@@ -1,6 +1,6 @@
 <?php
 namespace KingPalm\B2B\Block;
-use KingPalm\B2B\Form as F;
+use KingPalm\B2B\Schema as S;
 use Magento\Framework\View\Element\AbstractBlock as _P;
 /**
  * 2019-06-11
@@ -30,14 +30,14 @@ class RegionJS extends _P {
 	 * https://github.com/magento/magento2/blob/2.2.0/lib/internal/Magento/Framework/View/Element/AbstractBlock.php#L643-L689
 	 * @return string
 	 */
-	final protected function _toHtml() {return df_js_x([F::idS('country') => ['regionUpdater' => [
+	final protected function _toHtml() {return df_js_x(['#' . S::country() => ['regionUpdater' => [
 		'countriesWithOptionalZip' => df_directory()->getCountriesWithOptionalZip(true)
 		,'defaultRegion' => ''
 		,'form' => '#form-validate'
 		,'optionalRegionAllowed' => true
-		,'postcodeId' => F::idS('postcode')
-		,'regionInputId' => F::idS('region')
+		,'postcodeId' => '#' . S::postcode()
+		,'regionInputId' => '#' . S::region()
 		,'regionJson' => df_json_decode(df_directory()->getRegionJson())
-		,'regionListId' => F::idS('region_id')
+		,'regionListId' => '#' . S::region_id()
 	]]]);}
 }

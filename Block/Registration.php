@@ -6,7 +6,6 @@ use Df\Framework\Form\Element\Checkbox;
 use Df\Framework\Form\Element\Select2;
 use Df\Framework\Form\Element\Text;
 use Df\Framework\Form\Element\Textarea;
-use KingPalm\B2B\Form as F;
 use KingPalm\B2B\Renderer;
 use KingPalm\B2B\Schema as S;
 use KingPalm\B2B\Source\Type as sType;
@@ -120,9 +119,7 @@ class Registration extends _P {
 	 * @used-by e()
 	 * @return Form
 	 */
-	private function form() {return dfc($this, function() {return df_new_omd(Form::class, [
-		'html_id_prefix' => F::id()
-	]);});}
+	private function form() {return dfc($this, function() {return df_new_omd(Form::class);});}
 
 	/**
 	 * 2019-05-30
@@ -141,7 +138,7 @@ class Registration extends _P {
 			'class' => df_cc_s('validate-not-number-first',
 				df_address_h()->getAttributeValidationClass('region')
 			)
-			,'id' => F::id('region'), 'name' => S::region(), 'type' => 'text'
+			,'id' => S::region(), 'name' => S::region(), 'type' => 'text'
 		])
 		,Select2::EXTRA => ['placeholder' => 'Please select a region, state or province.']
 		,'values' => df_a_to_options([''])
