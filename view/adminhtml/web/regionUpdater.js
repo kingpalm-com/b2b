@@ -188,8 +188,10 @@ define([
                     }
                 }
 
-                regionList.show();
-                regionInput.hide();
+                // 2019-06-12 Dmitry Fedyuk
+				// `.closest('.admin__field')` is my adaptaion of the widget to the backend.
+                regionList.closest('.admin__field').show();
+                regionInput.closest('.admin__field').hide();
                 label.attr('for', regionList.attr('id'));
             } else {
                 this._removeSelectOptions(regionList);
@@ -205,8 +207,11 @@ define([
                     regionInput.removeClass('required-entry');
                 }
 
-                regionList.removeClass('required-entry').prop('disabled', 'disabled').hide();
-                regionInput.show();
+                // 2019-06-12 Dmitry Fedyuk
+				// `.closest('.admin__field')` is my adaptaion of the widget to the backend.
+                regionList.removeClass('required-entry').prop('disabled', 'disabled')
+                    .closest('.admin__field').hide();
+                regionInput.closest('.admin__field').show();
                 label.attr('for', regionInput.attr('id'));
             }
 
