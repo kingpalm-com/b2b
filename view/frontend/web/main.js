@@ -19,10 +19,11 @@ function(c, e) {
 				firstname: 'Dmitry'
 				,lastname: 'Fedyuk 2'
 				,email_address: 'admin2@mage2.pro'
-				,password: '1111111'
-				,'password-confirmation': '1111111'
+				,password: '@Jaxike2r'
+				,'password-confirmation': '@Jaxike2r'
 				,kingpalm_b2b_name: 'Individual Entrepreneur Fedyuk Dmitry Sergeevich'
 				,kingpalm_b2b_dba: 'Mage2.PRO'
+				,kingpalm_b2b_enable: 1
 				,kingpalm_b2b_type: 'Adult Store'
 				,kingpalm_b2b_number_of_locations: 10
 				,kingpalm_b2b_tax: 222-222-222
@@ -36,9 +37,17 @@ function(c, e) {
 			};
 			var $form = $('#form-validate');
 			$.each(d, function(k, v) {
-				$('#' + k, $form).val(v);
+				var $e = $('#' + k, $form);
+				if ($e.is(':checkbox')) {
+					$e.prop('checked', true);
+				}
+				else {
+					$e.val(v);
+					if ($e.hasClass('df-select2')) {
+						$e.trigger('change');
+					}
+				}
 			});
-			$('#kingpalm_b2b_enable').prop('checked', true);
 		}
 	})();
 });});
