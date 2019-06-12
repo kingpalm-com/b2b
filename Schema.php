@@ -24,7 +24,7 @@ final class Schema {
 	
 	/**
 	 * 2019-06-11
-	 * @used-by \KingPalm\B2B\Block\RegionJS::_toHtml()
+	 * @used-by \KingPalm\B2B\Block\RegionJS\Frontend::_toHtml()
 	 * @used-by \KingPalm\B2B\Block\Registration::_toHtml()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeSchema::_process()    
@@ -95,7 +95,7 @@ final class Schema {
 
 	/**
 	 * 2019-06-11
-	 * @used-by \KingPalm\B2B\Block\RegionJS::_toHtml()
+	 * @used-by \KingPalm\B2B\Block\RegionJS\Frontend::_toHtml()
 	 * @used-by \KingPalm\B2B\Block\Registration::_toHtml()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeSchema::_process() 
@@ -106,7 +106,7 @@ final class Schema {
 	
 	/**
 	 * 2019-06-11
-	 * @used-by \KingPalm\B2B\Block\RegionJS::_toHtml()
+	 * @used-by \KingPalm\B2B\Block\RegionJS\Frontend::_toHtml()
 	 * @used-by \KingPalm\B2B\Block\Registration::region()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeSchema::_process()  
@@ -117,7 +117,7 @@ final class Schema {
 
 	/**
 	 * 2019-06-11
-	 * @used-by \KingPalm\B2B\Block\RegionJS::_toHtml()
+	 * @used-by \KingPalm\B2B\Block\RegionJS\Frontend::_toHtml()
 	 * @used-by \KingPalm\B2B\Block\Registration::region()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeSchema::_process()

@@ -1,14 +1,13 @@
 <?php
-namespace KingPalm\B2B\Block;
+namespace KingPalm\B2B\Block\RegionJS;
 use KingPalm\B2B\Schema as S;
 use Magento\Framework\View\Element\AbstractBlock as _P;
 /**
  * 2019-06-11
  * @used-by \KingPalm\B2B\Block\Registration::_toHtml()
- * @used-by vendor/kingpalm/b2b/view/adminhtml/layout/customer_index_edit.xml
  * @final Unable to use the PHP «final» keyword here because of the M2 code generation.
  */
-class RegionJS extends _P {
+class Frontend extends _P {
 	/**
 	 * 2019-05-30 https://github.com/magento/magento2/blob/2.3.1/app/code/Magento/Customer/view/frontend/templates/form/register.phtml
 	 * @override

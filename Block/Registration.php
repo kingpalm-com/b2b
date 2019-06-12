@@ -6,6 +6,7 @@ use Df\Framework\Form\Element\Checkbox;
 use Df\Framework\Form\Element\Select2;
 use Df\Framework\Form\Element\Text;
 use Df\Framework\Form\Element\Textarea;
+use KingPalm\B2B\Block\RegionJS\Frontend as RegionJS;
 use KingPalm\B2B\Renderer;
 use KingPalm\B2B\Schema as S;
 use KingPalm\B2B\Source\Type as sType;

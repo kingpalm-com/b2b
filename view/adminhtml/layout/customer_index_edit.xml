@@ -4,8 +4,8 @@
 	xsi:noNamespaceSchemaLocation='urn:magento:framework:View/Layout/etc/page_configuration.xsd'
 >
 	<body>
-		<referenceContainer name='customer_form'>
-			<block class='KingPalm\B2B\Block\RegionJS'/>
+		<referenceContainer name='before.body.end'>
+			<block class='KingPalm\B2B\Block\RegionJS\Backend'/>
 		</referenceContainer>
 	</body>
 </page>
