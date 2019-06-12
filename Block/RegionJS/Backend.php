@@ -32,6 +32,7 @@ class Backend extends _P {
 	final protected function _toHtml() {return df_js(__CLASS__, 'regionJS', [
 		'countriesWithOptionalZip' => df_directory()->getCountriesWithOptionalZip(true)
 		,'country' => self::n(S::country())
+		,'enable' => self::n(S::enable())
 		,'postcode' => self::n(S::postcode())
 		,'region' => self::n(S::region())
 		,'regionId' => self::n(S::region_id())
