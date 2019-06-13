@@ -9,7 +9,7 @@ function(c, e) {
 	var $e = $(e);
 	(function() {
 		var $toggled = $('.toggled', $e);
-		$('.enable', $e).click(function() {
+		$('#kingpalm_b2b_enable', $e).click(function() {
 			$toggled.toggleClass('df-hidden');
 		});
 	})();
