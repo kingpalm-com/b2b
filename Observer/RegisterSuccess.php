@@ -20,7 +20,6 @@ final class RegisterSuccess implements ObserverInterface {
 	 */
 	function execute(O $o) {
 		$c = df_customer($o['customer']); /** @var Customer $c */
-		$region = $c[S::region()] ?: '';
 		df_mail(
 			df_my() ? 'admin@mage2.pro' : df_cfg('contact/email/recipient_email')
 			,'A business registration: ' . $c[S::name()]
@@ -36,7 +35,7 @@ final class RegisterSuccess implements ObserverInterface {
 				,S::address(true) => $c[S::address()]
 				,S::city(true) => $c[S::city()]
 				,S::postcode(true) => $c[S::postcode()]
-				,S::region(true) => $region 
+				,S::region(true) => df_region_name($c[S::region()], $c[S::region_id()])
 				,S::country(true) => df_country_ctn($c[S::country()])
 				,S::notes(true) => $c[S::notes()]
 			]))
