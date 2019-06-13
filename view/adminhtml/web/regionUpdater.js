@@ -26,6 +26,9 @@ define([
 		 */
 		_create: function () {
 			this._initCountryElement();
+			// 2019-06-13 Dmitry Fedyuk
+			// Without this line the dropdown is not initialized with a previously choen value.
+			this.options.currentRegion |= $(this.options.regionListId).val();
 			this.currentRegionOption = this.options.currentRegion;
 			this.regionTmpl = mageTemplate(this.options.regionTemplate);
 			this._updateRegion(this.element.find('option:selected').val());
