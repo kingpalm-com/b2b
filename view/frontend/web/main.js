@@ -26,7 +26,7 @@ function(c, e) {
 				,kingpalm_b2b_enable: 1
 				,kingpalm_b2b_type: 'Adult Store'
 				,kingpalm_b2b_number_of_locations: 10
-				,kingpalm_b2b_tax: 222-222-222
+				,kingpalm_b2b_tax: 222222222
 				,kingpalm_b2b_phone: '(212) 736-3800'
 				,kingpalm_b2b_address: '49 West 32nd Street'
 				,kingpalm_b2b_city: 'New York City'
