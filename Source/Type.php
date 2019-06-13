@@ -22,5 +22,3 @@ final class Type extends \Df\Config\Source {
 		,'Hookah Lounge/Store', 'Tobacco Store', 'Tattoo Parlor', 'Processor'
 	]);}
 }
-
-
