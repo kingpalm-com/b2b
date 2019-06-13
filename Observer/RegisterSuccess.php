@@ -23,7 +23,7 @@ final class RegisterSuccess implements ObserverInterface {
 		df_mail(
 			df_my() ? 'admin@mage2.pro' : df_cfg('contact/email/recipient_email')
 			,'A business registration: ' . $c[S::name()]
-			,nl2br(df_cc_kv([
+			,nl2br(df_format_kv([
 				'Name' => $c->getName()
 				,'Email' =>  $c->getEmail()
 				,S::name(true) => $c[S::name()]
