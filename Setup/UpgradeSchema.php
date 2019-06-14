@@ -28,5 +28,13 @@ class UpgradeSchema extends \Df\Framework\Upgrade\Schema {
 			df_dbc_c(S::country(), S::country(true));
 			df_dbc_c(S::notes(), S::notes(true));
 		}
+		/**
+		 * 2019-06-15
+		 * "Implement the «Sales Agent» field for the «Customer» entity":
+		 * https://github.com/kingpalm-com/b2b/issues/2
+		 */
+		if ($this->v('1.1.0')) {
+			df_dbc_c(S::agent(), S::agent(true));
+		}
 	}
 }

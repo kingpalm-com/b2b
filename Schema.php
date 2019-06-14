@@ -13,6 +13,18 @@ final class Schema {
 	static function address($l = false) {return !$l ? self::f() : 'Storefront Business Address';}
 
 	/**
+	 * 2019-06-15
+	 * "Implement the «Sales Agent» field for the «Customer» entity":
+	 * https://github.com/kingpalm-com/b2b/issues/2
+	 * @used-by \KingPalm\B2B\Block\Registration::_toHtml()
+	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()
+	 * @used-by \KingPalm\B2B\Setup\UpgradeSchema::_process()
+	 * @param bool $l [optional]
+	 * @return string
+	 */
+	static function agent($l = false) {return !$l ? self::f() : 'Sales Agent';}
+
+	/**
 	 * 2019-06-11
 	 * @used-by \KingPalm\B2B\Block\Registration::_toHtml()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()

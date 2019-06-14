@@ -76,6 +76,7 @@ class Registration extends _P {
 					,$this->region()
 					,df_block_output(RegionJS::class)
 					,$this->e(Country::class, S::country(), S::country(true))
+					,$this->text(S::agent(), S::agent(true))
 					,$this->textarea(S::notes(), S::notes(true))
 				])
 			])

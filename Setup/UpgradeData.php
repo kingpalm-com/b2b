@@ -36,5 +36,14 @@ class UpgradeData extends \Df\Framework\Upgrade\Data {
 			Add::select(S::country(), S::country(true), sCountry::class);
 			Add::textarea(S::notes(), S::notes(true));
 		}
+		/**
+		 * 2019-06-15
+		 * "Implement the «Sales Agent» field for the «Customer» entity":
+		 * https://github.com/kingpalm-com/b2b/issues/2
+		 */
+		if ($this->v('1.1.0')) {
+			Add::text(S::agent(), S::agent(true), ['position' => S::country()]);
+			df_customer_att_pos_set(S::notes(), df_customer_att_pos_next());
+		}
 	}
 }
