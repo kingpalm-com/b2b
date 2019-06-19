@@ -45,5 +45,17 @@ class UpgradeData extends \Df\Framework\Upgrade\Data {
 			Add::text(S::agent(), S::agent(true), ['position' => S::country()]);
 			df_customer_att_pos_set(S::notes(), df_customer_att_pos_next());
 		}
+		/**
+		 * 2019-06-19
+		 * It fixes the issue:
+		 * "The frontend registration requires a postcode
+		 * even if the «Retail Registration?» checkbox is unchecked"
+		 * https://github.com/kingpalm-com/b2b/issues/6
+		 */
+		if ($this->v('1.1.1')) {
+			df_conn()->update(df_table('customer_eav_attribute'),
+				['data_model' => null], ['? = attribute_id' => df_att_code2id(S::postcode())]
+			);
+		}
 	}
 }

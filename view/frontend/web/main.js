@@ -9,12 +9,25 @@ function(c, e) {
 	var $e = $(e);
 	(function() {
 		var $toggled = $('.toggled', $e);
-		$('#kingpalm_b2b_enable', $e).click(function() {
-			$toggled.toggleClass('df-hidden');
-		});
+		var $checkbox = $('#kingpalm_b2b_enable', $e);
+		var update = function() {
+			var checked = $(this).is(':checked');
+			$toggled.toggleClass('df-hidden', !checked);
+			var $elements = $('[id^=kingpalm_b2b_]').not($checkbox);
+			/**
+			 * 2019-06-19
+			 * It fixes the issue:
+			 * "The frontend registration requires a postcode
+			 * even if the «Retail Registration?» checkbox is unchecked"
+			 * https://github.com/kingpalm-com/b2b/issues/6
+			 */
+			checked ? $elements.removeAttrs('disabled') : $elements.attr('disabled', 'disabled');
+		};
+		$checkbox.change(update);
+		update();
 	})();
 	(function() {
-		if ('localhost.com' === location.hostname) {
+		if (false && 'localhost.com' === location.hostname) {
 			var d = {
 				firstname: 'Dmitry'
 				,lastname: 'Fedyuk 2'
