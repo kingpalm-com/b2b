@@ -1,0 +1,20 @@
+<?xml version='1.0'?>
+<config
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd"
+>
+<!-- 2019-06-20
+@see \Magento\Customer\Controller\Adminhtml\Index\Save::execute():
+	$this->_eventManager->dispatch(
+		'adminhtml_customer_prepare_save',
+		['customer' => $customer, 'request' => $this->getRequest()]
+	);
+https://github.com/magento/magento2/blob/2.3.1/app/code/Magento/Customer/Controller/Adminhtml/Index/Save.php#L320-L323
+-->
+	<event name='adminhtml_customer_prepare_save'>
+		<observer
+			instance='KingPalm\B2B\Observer\AdminhtmlCustomerPrepareSave'
+			name='KingPalm\B2B\Observer\AdminhtmlCustomerPrepareSave'
+		/>
+	</event>
+</config>

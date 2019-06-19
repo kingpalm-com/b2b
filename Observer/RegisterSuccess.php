@@ -12,7 +12,7 @@ use Magento\Framework\Event\Observer as O;
 use Magento\Framework\Event\ObserverInterface;
 final class RegisterSuccess implements ObserverInterface {
 	/**
-	 * 2016-12-03
+	 * 2019-06-13
 	 * @override
 	 * @see ObserverInterface::execute()
 	 * @used-by \Magento\Framework\Event\Invoker\InvokerDefault::_callObserverMethod()
