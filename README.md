@@ -31,3 +31,5 @@ If you have problems with these commands, please check the [detailed instruction
 ![](https://mage2.pro/uploads/default/original/2X/c/c1291a75b828366b710e8f82cfbe8173f95f1ce4.png)
 
 ![](https://mage2.pro/uploads/default/original/2X/a/adf0d0f720d9231dd453034e81f3dfe6544bc0d0.png)
+
+![](https://mage2.pro/uploads/default/original/2X/8/85fc0fafde6524af98ea4f58971d333887593023.png)
