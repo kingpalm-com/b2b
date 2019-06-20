@@ -44,7 +44,7 @@ final class Schema {
 	 * @param bool $l [optional]
 	 * @return string
 	 */
-	static function country($l = false) {return !$l ? self::f() : 'Country';}	
+	static function country($l = false) {return !$l ? 'country_id' : 'Country';}
 
 	/**
 	 * 2019-06-10
@@ -113,7 +113,7 @@ final class Schema {
 	 * @param bool $l [optional]
 	 * @return string
 	 */
-	static function phone($l = false) {return !$l ? self::f() : 'Phone Number';}
+	static function phone($l = false) {return !$l ? 'telephone' : 'Phone Number';}
 
 	/**
 	 * 2019-06-11                                             
@@ -125,7 +125,7 @@ final class Schema {
 	 * @param bool $l [optional]
 	 * @return string
 	 */
-	static function postcode($l = false) {return !$l ? self::f() : 'Zip Code';}
+	static function postcode($l = false) {return !$l ? 'postcode' : 'Zip Code';}
 	
 	/**
 	 * 2019-06-11                                     
