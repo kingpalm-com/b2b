@@ -17,6 +17,7 @@ final class Schema {
 	 * "Implement the «Sales Agent» field for the «Customer» entity":
 	 * https://github.com/kingpalm-com/b2b/issues/2
 	 * @used-by \KingPalm\B2B\Block\Registration::_toHtml()
+	 * @used-by \KingPalm\B2B\Observer\RegisterSuccess::execute()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeSchema::_process()
 	 * @param bool $l [optional]
@@ -49,6 +50,7 @@ final class Schema {
 	/**
 	 * 2019-06-10
 	 * @used-by \KingPalm\B2B\Block\Registration::_toHtml()
+	 * @used-by \KingPalm\B2B\Observer\RegisterSuccess::execute()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeSchema::_process()
 	 * @param bool $l [optional]
@@ -78,6 +80,7 @@ final class Schema {
 	/**
 	 * 2019-06-04
 	 * @used-by \KingPalm\B2B\Block\Registration::_toHtml()
+	 * @used-by \KingPalm\B2B\Observer\RegisterSuccess::execute()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeSchema::_process()
 	 * @param bool $l [optional]
@@ -88,6 +91,7 @@ final class Schema {
 	/**
 	 * 2019-06-11
 	 * @used-by \KingPalm\B2B\Block\Registration::_toHtml()
+	 * @used-by \KingPalm\B2B\Observer\RegisterSuccess::execute()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeSchema::_process()
 	 * @param bool $l [optional]
@@ -98,6 +102,7 @@ final class Schema {
 	/**
 	 * 2019-06-11
 	 * @used-by \KingPalm\B2B\Block\Registration::_toHtml()
+	 * @used-by \KingPalm\B2B\Observer\RegisterSuccess::execute()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeSchema::_process()
 	 * @param bool $l [optional]
@@ -164,6 +169,7 @@ final class Schema {
 	/**
 	 * 2019-06-10
 	 * @used-by \KingPalm\B2B\Block\Registration::_toHtml()
+	 * @used-by \KingPalm\B2B\Observer\RegisterSuccess::execute()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeSchema::_process()
 	 * @param bool $l [optional]
