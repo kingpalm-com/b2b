@@ -142,7 +142,7 @@ final class Schema {
 	 * @param bool $l [optional]
 	 * @return string
 	 */
-	static function region($l = false) {return !$l ? self::f() : 'State/Province';}	
+	static function region($l = false) {return !$l ? 'region' : 'State/Province';}
 
 	/**
 	 * 2019-06-11                      
@@ -154,7 +154,7 @@ final class Schema {
 	 * @param bool $l [optional]
 	 * @return string
 	 */
-	static function region_id($l = false) {return !$l ? self::f() : 'State/Province';}
+	static function region_id($l = false) {return !$l ? 'region_id' : 'State/Province';}
 
 	/**
 	 * 2019-06-11
@@ -183,7 +183,6 @@ final class Schema {
 	 * @used-by enable()
 	 * @used-by name()
 	 * @used-by number_of_locations()
-	 * @used-by tax()
 	 * @used-by type()
 	 * @return string
 	 */
