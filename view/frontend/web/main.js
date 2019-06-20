@@ -40,7 +40,7 @@ function(c, e) {
 		}
 	})();
 	(function() {
-		if (false && 'localhost.com' === location.hostname) {
+		if ('localhost.com' === location.hostname) {
 			var d = {
 				firstname: 'Dmitry'
 				,lastname: 'Fedyuk 2'
@@ -49,7 +49,7 @@ function(c, e) {
 				,'password-confirmation': '@Jaxike2r'
 				,kingpalm_b2b_name: 'Individual Entrepreneur Fedyuk Dmitry Sergeevich'
 				,kingpalm_b2b_dba: 'Mage2.PRO'
-				,kingpalm_b2b_enable: 1
+				//,kingpalm_b2b_enable: 1
 				,kingpalm_b2b_type: 'Adult Store'
 				,kingpalm_b2b_number_of_locations: 10
 				,kingpalm_b2b_tax: 222222222
