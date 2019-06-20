@@ -79,6 +79,17 @@ class Registration extends _P {
 					,$this->text(S::agent(), S::agent(true))
 					,$this->textarea(S::notes(), S::notes(true))
 				])
+				/**
+				 * 2019-06-21
+				 * 1) "Transfer the company name and its address to the "address" entity":
+				 * https://github.com/kingpalm-com/b2b/issues/3
+				 * 2) @used-by \Magento\Customer\Controller\Account\CreatePost::extractAddress():
+				 *		if (!$this->getRequest()->getPost('create_address')) {
+				 *			return null;
+				 *		}
+				 * https://github.com/magento/magento2/blob/2.3.1/app/code/Magento/Customer/Controller/Account/CreatePost.php#L240-L242
+				 */
+				,df_tag('input', ['type' => 'hidden', 'name' => 'create_address', 'value' => 1])
 			])
 		]
 	);}
