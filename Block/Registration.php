@@ -62,10 +62,7 @@ class Registration extends _P {
 					$this->text(S::name(), S::name(true))
 					,$this->text(S::dba(), S::dba(true))
 					,$this->select(
-						S::type()
-						,S::type(true)
-						,sType::s()->keys(),
-						['placeholder' => 'please select']
+						S::type(), S::type(true), sType::s()->keys(), ['placeholder' => 'please select']
 					)
 					,$this->text(S::number_of_locations(), S::number_of_locations(true))
 					,$this->text(S::tax(), S::tax(true))
@@ -93,7 +90,7 @@ class Registration extends _P {
 				 * so Magento will not create an address in this case.
 				 * https://github.com/kingpalm-com/b2b/blob/1.3.1/view/frontend/web/main.js#L18-L26
 				 */
-				,df_tag('input', ['type' => 'hidden', 'name' => 'create_address', 'value' => 1])
+				,df_tag('input', ['name' => 'create_address', 'type' => 'hidden', 'value' => 1])
 			])
 		]
 	);}
