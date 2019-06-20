@@ -86,7 +86,7 @@ final class Schema {
 	 * @param bool $l [optional]
 	 * @return string
 	 */
-	static function name($l = false) {return !$l ? self::f() : 'Business Name';}
+	static function name($l = false) {return !$l ? 'company' : 'Business Name';}
 
 	/**
 	 * 2019-06-11
@@ -181,7 +181,6 @@ final class Schema {
 	 * 2019-06-04
 	 * @used-by dba()
 	 * @used-by enable()
-	 * @used-by name()
 	 * @used-by number_of_locations()
 	 * @used-by type()
 	 * @return string

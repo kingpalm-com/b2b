@@ -45,10 +45,10 @@ function(c, e) {
 			var d = {
 				firstname: 'Dmitry'
 				,city: 'New York City'
+				,company: 'Individual Entrepreneur Fedyuk Dmitry Sergeevich'
 				,country_id: 'US'
 				,email_address: 'admin2@mage2.pro'
 				,kingpalm_b2b_dba: 'Mage2.PRO'
-				,kingpalm_b2b_name: 'Individual Entrepreneur Fedyuk Dmitry Sergeevich'
 				,kingpalm_b2b_notes: 'A test note'
 				,kingpalm_b2b_number_of_locations: 10
 				,kingpalm_b2b_type: 'Adult Store'
