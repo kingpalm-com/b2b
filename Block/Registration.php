@@ -88,6 +88,10 @@ class Registration extends _P {
 				 *			return null;
 				 *		}
 				 * https://github.com/magento/magento2/blob/2.3.1/app/code/Magento/Customer/Controller/Account/CreatePost.php#L240-L242
+				 * 3) All inputs inside the .toggled block are disabled and not sent to the server
+				 * if the «Retail Registration?» checkbox is unchecked,
+				 * so Magento will not create an address in this case.
+				 * https://github.com/kingpalm-com/b2b/blob/1.3.1/view/frontend/web/main.js#L18-L26
 				 */
 				,df_tag('input', ['type' => 'hidden', 'name' => 'create_address', 'value' => 1])
 			])
