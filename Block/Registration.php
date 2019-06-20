@@ -91,6 +91,8 @@ class Registration extends _P {
 				 * https://github.com/kingpalm-com/b2b/blob/1.3.1/view/frontend/web/main.js#L18-L26
 				 */
 				,df_tag('input', ['name' => 'create_address', 'type' => 'hidden', 'value' => 1])
+				,df_tag('input', ['name' => 'default_billing', 'type' => 'hidden', 'value' => 1])
+				,df_tag('input', ['name' => 'default_shipping', 'type' => 'hidden', 'value' => 1])
 			])
 		]
 	);}
