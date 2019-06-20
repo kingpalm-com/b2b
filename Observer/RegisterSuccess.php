@@ -29,16 +29,16 @@ final class RegisterSuccess implements ObserverInterface {
 				,df_format_kv_table([
 					'Name' => $c->getName()
 					,'Email' =>  $c->getEmail()
-					,S::name(true) => $c[S::name()]
+					,S::name(true) => $a->getCompany()
 					,S::dba(true) => $c[S::dba()]
 					,S::type(true) => $c[S::type()]
 					,S::number_of_locations(true) => $c[S::number_of_locations()]
-					,S::tax(true) => $c[S::tax()]
+					,S::tax(true) => $a['vat_id']
 					,S::phone(true) => $a->getTelephone()
 					,S::address(true) => df_cc_s($a->getStreet())
 					,S::city(true) => $a->getCity()
 					,S::postcode(true) => $a->getPostcode()
-					,S::region(true) => df_region_name($c[S::region()], $c[S::region_id()])
+					,S::region(true) => df_region_name($a['region'], $a['region_id'])
 					,S::country(true) => df_country_ctn($a->getCountryId())
 					,S::agent(true) => $c[S::agent()]
 					,S::notes(true) => $c[S::notes()]
