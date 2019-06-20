@@ -164,7 +164,7 @@ final class Schema {
 	 * @param bool $l [optional]
 	 * @return string
 	 */
-	static function tax($l = false) {return !$l ? self::f() : 'Tax ID';}
+	static function tax($l = false) {return !$l ? 'vat_id' : 'Tax ID';}
 
 	/**
 	 * 2019-06-10
