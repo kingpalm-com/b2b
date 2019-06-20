@@ -10,7 +10,7 @@ final class Schema {
 	 * @param bool $l [optional]
 	 * @return string
 	 */
-	static function address($l = false) {return !$l ? self::f() : 'Storefront Business Address';}
+	static function address($l = false) {return !$l ? 'street[]' : 'Storefront Business Address';}
 
 	/**
 	 * 2019-06-15
@@ -32,7 +32,7 @@ final class Schema {
 	 * @param bool $l [optional]
 	 * @return string
 	 */
-	static function city($l = false) {return !$l ? self::f() : 'City';}
+	static function city($l = false) {return !$l ? 'city' : 'City';}
 	
 	/**
 	 * 2019-06-11
@@ -67,6 +67,13 @@ final class Schema {
 	 * @return string
 	 */
 	static function enable($l = false) {return !$l ? self::f() : 'Retail Registration?';}
+
+	/**
+	 * 2019-06-21 Currently, it is not used.
+	 * @param string $f
+	 * @return bool
+	 */
+	static function isCustom($f) {return df_starts_with($f, self::$PREFIX);}
 
 	/**
 	 * 2019-06-04
@@ -174,5 +181,13 @@ final class Schema {
 	 * @used-by type()
 	 * @return string
 	 */
-	private static function f() {return 'kingpalm_b2b_' . df_caller_f();}
+	private static function f() {return self::$PREFIX . df_caller_f();}
+
+	/**
+	 * 2019-06-21
+	 * @used-by f()
+	 * @used-by isCustom()
+	 * @var string
+	 */
+	private static $PREFIX = 'kingpalm_b2b_';
 }

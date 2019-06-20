@@ -13,7 +13,6 @@ function(c, e) {
 		var update = function() {
 			var checked = $checkbox.is(':checked');
 			$toggled.toggleClass('df-hidden', !checked);
-			//var $elements = $('[id^=kingpalm_b2b_]').not($checkbox);
 			var $elements = $(':input', $toggled);
 			/**
 			 * 2019-06-19
@@ -45,23 +44,22 @@ function(c, e) {
 		if ('localhost.com' === location.hostname) {
 			var d = {
 				firstname: 'Dmitry'
-				,lastname: 'Fedyuk 2'
+				,city: 'New York City'
 				,email_address: 'admin2@mage2.pro'
-				,password: '@Jaxike2r'
-				,'password-confirmation': '@Jaxike2r'
-				,kingpalm_b2b_name: 'Individual Entrepreneur Fedyuk Dmitry Sergeevich'
+				,kingpalm_b2b_country: 'US'
 				,kingpalm_b2b_dba: 'Mage2.PRO'
-				//,kingpalm_b2b_enable: 1
-				,kingpalm_b2b_type: 'Adult Store'
+				,kingpalm_b2b_name: 'Individual Entrepreneur Fedyuk Dmitry Sergeevich'
+				,kingpalm_b2b_notes: 'A test note'
 				,kingpalm_b2b_number_of_locations: 10
-				,kingpalm_b2b_tax: 222222222
 				,kingpalm_b2b_phone: '(212) 736-3800'
-				,kingpalm_b2b_address: '49 West 32nd Street'
-				,kingpalm_b2b_city: 'New York City'
 				,kingpalm_b2b_postcode: '10001'
 				,kingpalm_b2b_region_id: 43
-				,kingpalm_b2b_country: 'US'
-				,kingpalm_b2b_notes: 'A test note'
+				,kingpalm_b2b_tax: 222222222
+				,kingpalm_b2b_type: 'Adult Store'
+				,lastname: 'Fedyuk 2'
+				,password: '@Jaxike2r'
+				,'password-confirmation': '@Jaxike2r'
+				,'street\\[\\]': '49 West 32nd Street'
 			};
 			$.each(d, function(k, v) {
 				var $e = $('#' + k, $('#form-validate'));
