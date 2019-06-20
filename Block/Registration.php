@@ -43,7 +43,7 @@ class Registration extends _P {
 		,df_widget($this) + ['class' => 'kingpalm-b2b-registration']
 		,[
 			$this->cb(S::enable(), S::enable(true))
-			,df_tag('div', df_cc_s('toggled', df_my() ? null : 'df-hidden'), [
+			,df_tag('div', 'toggled df-hidden', [
 				df_tag('div', 'note', [
 					df_tag('div', 'note-block note-block-1', [
 						df_tag('p', [], 'Retail Accounts Are For Storefront Businesses ONLY!')

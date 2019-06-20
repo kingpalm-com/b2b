@@ -11,7 +11,7 @@ function(c, e) {
 		var $toggled = $('.toggled', $e);
 		var $checkbox = $('#kingpalm_b2b_enable', $e);
 		var update = function() {
-			var checked = $(this).is(':checked');
+			var checked = $checkbox.is(':checked');
 			$toggled.toggleClass('df-hidden', !checked);
 			var $elements = $('[id^=kingpalm_b2b_]').not($checkbox);
 			/**
@@ -25,6 +25,18 @@ function(c, e) {
 		};
 		$checkbox.change(update);
 		update();
+		/**
+		 * 2019-06-20
+		 * 1) "Point the «Wholesale» menu item to the retail customers registration page":
+		 * https://github.com/kingpalm-com/b2b/issues/5
+		 * 2) `location.search`:
+		 * https://developer.mozilla.org/en-US/docs/Web/API/Location
+		 * https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/search
+		 */
+		if (-1 !== location.search.indexOf('wholesale')) {
+			$checkbox.prop('checked', true);
+			update();
+		}
 	})();
 	(function() {
 		if (false && 'localhost.com' === location.hostname) {
