@@ -29,7 +29,8 @@ function(c, e) {
 		 * 2019-06-20
 		 * 1) "Point the «Wholesale» menu item to the retail customers registration page":
 		 * https://github.com/kingpalm-com/b2b/issues/5
-		 * 2) `location.search`:
+		 * 2) "How to add a query parameter to an URL via a CMS directive?": https://mage2.pro/t/5943
+		 * 3) `location.search`:
 		 * https://developer.mozilla.org/en-US/docs/Web/API/Location
 		 * https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/search
 		 */
