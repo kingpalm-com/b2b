@@ -13,13 +13,15 @@ function(c, e) {
 		var update = function() {
 			var checked = $checkbox.is(':checked');
 			$toggled.toggleClass('df-hidden', !checked);
-			var $elements = $('[id^=kingpalm_b2b_]').not($checkbox);
+			//var $elements = $('[id^=kingpalm_b2b_]').not($checkbox);
+			var $elements = $(':input', $toggled);
 			/**
 			 * 2019-06-19
 			 * It fixes the issue:
 			 * "The frontend registration requires a postcode
 			 * even if the «Retail Registration?» checkbox is unchecked"
 			 * https://github.com/kingpalm-com/b2b/issues/6
+			 * 2019-06-21 All `disabled` attributes are not submitted to the server (I have checked it).
 			 */
 			checked ? $elements.removeAttrs('disabled') : $elements.attr('disabled', 'disabled');
 		};
@@ -61,9 +63,8 @@ function(c, e) {
 				,kingpalm_b2b_country: 'US'
 				,kingpalm_b2b_notes: 'A test note'
 			};
-			var $form = $('#form-validate');
 			$.each(d, function(k, v) {
-				var $e = $('#' + k, $form);
+				var $e = $('#' + k, $('#form-validate'));
 				if ($e.is(':checkbox')) {
 					$e.prop('checked', true);
 				}
