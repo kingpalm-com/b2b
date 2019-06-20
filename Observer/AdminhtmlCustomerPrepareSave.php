@@ -14,8 +14,6 @@ use Magento\Customer\Model\Data\Customer as CD;
 use Magento\Email\Model\Template as T;
 use Magento\Framework\Event\Observer as O;
 use Magento\Framework\Event\ObserverInterface;
-use Magento\Framework\Mail\Template\Factory as TF;
-use Magento\Framework\Mail\Template\FactoryInterface as ITF;
 use Magento\Framework\Mail\TemplateInterface as IT;
 final class AdminhtmlCustomerPrepareSave implements ObserverInterface {
 	/**
