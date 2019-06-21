@@ -36,5 +36,16 @@ class UpgradeSchema extends \Df\Framework\Upgrade\Schema {
 		if ($this->v('1.1.0')) {
 			df_dbc_c(S::agent(), S::agent(true));
 		}
+		/**
+		 * 2019-06-21
+		 * "Transfer the company name and its address to the "address" entity":
+		 * https://github.com/kingpalm-com/b2b/issues/3
+		 */
+		if ($this->v('1.4.0')) {
+			\KingPalm\B2B\Setup\V140\MoveDataToAddress::p();
+			array_map(function($c) {
+				df_db_column_drop('customer_entity', "kingpalm_b2b_$c");
+			}, ['name', 'tax', 'phone', 'address', 'city', 'postcode', 'region', 'region_id', 'country']);
+		}
 	}
 }
