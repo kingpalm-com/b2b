@@ -44,7 +44,8 @@ class UpgradeSchema extends \Df\Framework\Upgrade\Schema {
 		if ($this->v('1.4.0')) {
 			\KingPalm\B2B\Setup\V140\MoveDataToAddress::p();
 			array_map(function($c) {
-				df_db_column_drop('customer_entity', "kingpalm_b2b_$c");
+				df_db_column_drop('customer_entity', $c = "kingpalm_b2b_$c");
+				df_eav_setup()->removeAttribute('customer', $c);
 			}, ['name', 'tax', 'phone', 'address', 'city', 'postcode', 'region', 'region_id', 'country']);
 		}
 	}
