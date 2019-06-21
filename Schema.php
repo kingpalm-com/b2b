@@ -65,6 +65,7 @@ final class Schema {
 	 * @used-by \KingPalm\B2B\Observer\RegisterSuccess::execute()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeData::_process()
 	 * @used-by \KingPalm\B2B\Setup\UpgradeSchema::_process()
+	 * @used-by \KingPalm\B2B\Setup\V140\MoveDataToAddress::p()
 	 * @param bool $l [optional]
 	 * @return string
 	 */
