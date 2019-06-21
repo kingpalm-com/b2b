@@ -18,7 +18,7 @@ bin/magento maintenance:enable
 composer remove kingpalm/b2b
 rm -rf composer.lock
 composer clear-cache
-composer require kingpalm/b2b
+composer require kingpalm/b2b:*
 bin/magento setup:upgrade
 rm -rf var/di var/generation generated/code && bin/magento setup:di:compile
 rm -rf pub/static/* && bin/magento setup:static-content:deploy -f en_US --area adminhtml --theme Magento/backend && bin/magento setup:static-content:deploy -f en_US --area frontend --theme Magento/kingpalm
