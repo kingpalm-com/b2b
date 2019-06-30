@@ -156,7 +156,14 @@ class Registration extends _P {
 			)
 			,'id' => S::region(), 'name' => S::region(), 'type' => 'text'
 		])
-		,Select2::EXTRA => ['placeholder' => 'Please select a region, state or province.']
+		,Select2::EXTRA => [
+			// 2019-06-30
+			// "Implement an ability to select a state by typing its name":
+			// https://github.com/kingpalm-com/core/issues/17
+			// https://select2.org/searching#limiting-display-of-the-search-box-to-large-result-sets
+			'minimumResultsForSearch' => 20
+			,'placeholder' => 'Please select a region, state or province.'
+		]
 		,'values' => df_a_to_options([''])
 	]);}
 
