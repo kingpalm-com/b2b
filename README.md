@@ -3,6 +3,7 @@ A B2B module for [kingpalm.com](https://kingpalm.com).
 ## How to install
 ```
 bin/magento maintenance:enable
+rm -rf composer.lock
 composer clear-cache
 composer require kingpalm/b2b:*
 bin/magento setup:upgrade
