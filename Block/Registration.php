@@ -100,8 +100,8 @@ class Registration extends _P {
 	/**
 	 * 2019-05-30
 	 * @used-by _toHtml()
-	 * @param $id
-	 * @param $label
+	 * @param string $id
+	 * @param string $label
 	 * @return string
 	 */
 	private function cb($id, $label) {return $this->e(Checkbox::class, $id, $label);}
