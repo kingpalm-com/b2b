@@ -29,7 +29,7 @@ class Frontend extends _P {
 	 * https://github.com/magento/magento2/blob/2.2.0/lib/internal/Magento/Framework/View/Element/AbstractBlock.php#L643-L689
 	 * @return string
 	 */
-	final protected function _toHtml() {return df_js_x(['#' . S::country() => ['regionUpdater' => [
+	final protected function _toHtml() {return df_js_x('#' . S::country(), null, 'regionUpdater', [
 		'countriesWithOptionalZip' => df_directory()->getCountriesWithOptionalZip(true)
 		,'defaultRegion' => ''
 		,'form' => '#form-validate'
@@ -38,5 +38,5 @@ class Frontend extends _P {
 		,'regionInputId' => '#' . S::region()
 		,'regionJson' => df_json_decode(df_directory()->getRegionJson())
 		,'regionListId' => '#' . S::region_id()
-	]]]);}
+	]);}
 }
