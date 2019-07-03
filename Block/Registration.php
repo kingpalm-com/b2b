@@ -40,7 +40,7 @@ class Registration extends _P {
 	 * @return string
 	 */
 	final protected function _toHtml() {return df_tag('div'
-		,df_widget($this) + ['class' => 'kingpalm-b2b-registration']
+		,df_widget($this) + ['class' => 'kingpalm kingpalm-b2b-registration']
 		,[
 			$this->cb(S::enable(), S::enable(true))
 			,df_tag('div', 'toggled df-hidden', [
