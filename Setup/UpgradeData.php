@@ -7,6 +7,7 @@ use Magento\Customer\Model\Attribute\Data\Postcode as dPostcode;
 use Magento\Customer\Model\ResourceModel\Address\Attribute\Backend\Region as bRegion;
 use Magento\Customer\Model\ResourceModel\Address\Attribute\Source\Country as sCountry;
 use Magento\Customer\Model\ResourceModel\Address\Attribute\Source\Region as sRegion;
+use Magento\Eav\Setup\EavSetup;
 // 2019-06-04
 /** @final Unable to use the PHP «final» keyword here because of the M2 code generation. */
 class UpgradeData extends \Df\Framework\Upgrade\Data {
@@ -56,6 +57,19 @@ class UpgradeData extends \Df\Framework\Upgrade\Data {
 			df_conn()->update(df_table('customer_eav_attribute'),
 				['data_model' => null], ['? = attribute_id' => df_att_code2id(S::postcode())]
 			);
+		}
+		// 2019-07-06
+		// "Implement an ability to download all business registrations onto Excel":
+		// https://github.com/kingpalm-com/core/issues/6
+		if ($this->v('1.6.0')) {
+			$e = df_eav_setup(); /** @var EavSetup $e */
+			$a = S::enable(); /** @var string $a */
+			foreach (['is_filterable_in_grid', 'is_visible_in_grid', 'is_used_in_grid'] as $k) {
+				$e->updateAttribute('customer', $a, $k, 1);
+				$e->updateAttribute('customer', $a, $k, 1);
+				$e->updateAttribute('customer', $a, $k, 1);
+			}
+			$e->updateAttribute('customer', $a, 'source_model', \Df\Config\Source\YN::class);
 		}
 	}
 }

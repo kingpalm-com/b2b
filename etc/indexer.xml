@@ -1,0 +1,12 @@
+<?xml version='1.0'?>
+<config
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='urn:magento:framework:Indexer/etc/indexer.xsd'
+>
+<!-- 2019-07-07 https://magento.stackexchange.com/a/150103 -->
+	<indexer id='customer_grid'>
+		<fieldset name='customer'>
+			<field name='kingpalm_b2b_enable' xsi:type='filterable' dataType='int'/>
+		</fieldset>
+	</indexer>
+</config>
