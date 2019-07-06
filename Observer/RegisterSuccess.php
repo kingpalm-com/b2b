@@ -6,6 +6,7 @@
  * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Customer/Controller/Account/CreatePost.php#L239-L242
  */
 namespace KingPalm\B2B\Observer;
+use \Magento\Contact\Model\ConfigInterface as IContact;
 use KingPalm\B2B\Schema as S;
 use Magento\Customer\Model\Address as A;
 use Magento\Customer\Model\Customer;
@@ -24,7 +25,16 @@ final class RegisterSuccess implements ObserverInterface {
 		if ($c[S::enable()]) {
 			$a = df_first($c->getAddresses()); /** @var A $a */
 			df_mail(
-				df_my() ? 'admin@mage2.pro' : df_cfg('contact/email/recipient_email')
+				df_my() ? 'admin@mage2.pro' :
+					/**
+					 * 2019-07-06
+					 * 1) "Notify the `sales@oozewholesale.com` recipient about business registrations":
+					 * https://github.com/kingpalm-com/b2b/issues/7
+					 * 2) Magento does not aloow multiple email addresses
+					 * in the @see IContact::XML_PATH_EMAIL_RECIPIENT field,
+					 * so I hardcode the `sales@oozewholesale.com` address as the fastest solution.
+					 */
+					[df_cfg(IContact::XML_PATH_EMAIL_RECIPIENT), 'sales@oozewholesale.com']
 				,'A business registration: ' . $c[S::name()]
 				,df_format_kv_table([
 					'Name' => $c->getName()
