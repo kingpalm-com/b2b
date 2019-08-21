@@ -6,8 +6,8 @@
  * https://github.com/magento/magento2/blob/2.0.0/app/code/Magento/Customer/Controller/Account/CreatePost.php#L239-L242
  */
 namespace KingPalm\B2B\Observer;
-use \Magento\Contact\Model\ConfigInterface as IContact;
 use KingPalm\B2B\Schema as S;
+use Magento\Contact\Model\ConfigInterface as IContact;
 use Magento\Customer\Model\Address as A;
 use Magento\Customer\Model\Customer;
 use Magento\Framework\Event\Observer as O;
