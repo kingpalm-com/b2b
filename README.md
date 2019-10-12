@@ -6,6 +6,7 @@ bin/magento maintenance:enable
 rm -rf composer.lock
 composer clear-cache
 composer require kingpalm/b2b:*
+bin/magento cache:enable
 bin/magento setup:upgrade
 rm -rf var/di var/generation generated/code
 bin/magento setup:di:compile
@@ -16,10 +17,9 @@ bin/magento setup:static-content:deploy \
 	-f en_US
 bin/magento setup:static-content:deploy \
 	--area frontend \
-	--theme Magento/kingpalm \
+	--theme Smartwave/porto_child \
 	-f en_US
 bin/magento maintenance:disable
-bin/magento cache:enable
 ```
 
 ## How to upgrade
@@ -29,6 +29,7 @@ composer remove kingpalm/b2b
 rm -rf composer.lock
 composer clear-cache
 composer require kingpalm/b2b:*
+bin/magento cache:enable
 bin/magento setup:upgrade
 rm -rf var/di var/generation generated/code
 bin/magento setup:di:compile
@@ -39,13 +40,10 @@ bin/magento setup:static-content:deploy \
 	-f en_US
 bin/magento setup:static-content:deploy \
 	--area frontend \
-	--theme Magento/kingpalm \
+	--theme Smartwave/porto_child \
 	-f en_US
 bin/magento maintenance:disable
-bin/magento cache:enable
 ```
-
-If you have problems with these commands, please check the [detailed instruction](https://mage2.pro/t/263).
 
 ## Screenshots
 ![](https://mage2.pro/uploads/default/original/2X/c/c1291a75b828366b710e8f82cfbe8173f95f1ce4.png)
