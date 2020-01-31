@@ -1,13 +1,10 @@
 <?xml version='1.0'?>
 <config
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd"
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xsi:noNamespaceSchemaLocation='urn:magento:framework:Event/etc/events.xsd'
 >
 <!-- 2019-06-13 «customer_register_success»: a customer registration event https://mage2.pro/t/2357 -->
 	<event name='customer_register_success'>
-		<observer
-			instance='KingPalm\B2B\Observer\RegisterSuccess'
-			name='KingPalm\B2B\Observer\RegisterSuccess'
-		/>
+		<observer instance='KingPalm\B2B\Observer\RegisterSuccess' name='KingPalm\B2B\Observer\RegisterSuccess'/>
 	</event>
 </config>
