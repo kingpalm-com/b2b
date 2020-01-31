@@ -1,4 +1,11 @@
 <?php
+namespace KingPalm\B2B\Observer;
+use Magento\Customer\Model\Customer as C;
+use Magento\Customer\Model\Data\Customer as CD;
+use Magento\Email\Model\Template as T;
+use Magento\Framework\Event\Observer as O;
+use Magento\Framework\Event\ObserverInterface;
+use Magento\Framework\Mail\TemplateInterface as IT;
 /**
  * 2019-06-20
  * @see \Magento\Customer\Controller\Adminhtml\Index\Save::execute():
@@ -8,13 +15,6 @@
  *	);
  * https://github.com/magento/magento2/blob/2.3.1/app/code/Magento/Customer/Controller/Adminhtml/Index/Save.php#L320-L323
  */
-namespace KingPalm\B2B\Observer;
-use Magento\Customer\Model\Customer as C;
-use Magento\Customer\Model\Data\Customer as CD;
-use Magento\Email\Model\Template as T;
-use Magento\Framework\Event\Observer as O;
-use Magento\Framework\Event\ObserverInterface;
-use Magento\Framework\Mail\TemplateInterface as IT;
 final class AdminhtmlCustomerPrepareSave implements ObserverInterface {
 	/**
 	 * 2019-06-20
