@@ -7,8 +7,8 @@ use Magento\Framework\Event\Observer as O;
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Mail\TemplateInterface as IT;
 /**
- * 2019-06-20
- * @see \Magento\Customer\Controller\Adminhtml\Index\Save::execute():
+ * 2019-06-20 `adminhtml_customer_prepare_save`
+ * @used-by \Magento\Customer\Controller\Adminhtml\Index\Save::execute():
  *	$this->_eventManager->dispatch(
  *		'adminhtml_customer_prepare_save',
  *		['customer' => $customer, 'request' => $this->getRequest()]
