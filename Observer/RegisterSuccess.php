@@ -36,7 +36,7 @@ final class RegisterSuccess implements ObserverInterface {
 					 */
 					[df_cfg(IContact::XML_PATH_EMAIL_RECIPIENT), 'sales@oozewholesale.com']
 				,'A business registration: ' . $c[S::name()]
-				,df_format_kv_table([
+				,df_kv_table([
 					'Name' => $c->getName()
 					,'Email' =>  $c->getEmail()
 					,S::name(true) => $a->getCompany()
