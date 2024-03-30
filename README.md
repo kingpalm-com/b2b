@@ -1,4 +1,4 @@
-A B2B module for [kingpalm.com](https://kingpalm.com).
+A B2B module for [kingpalm.com](https://kingpalm.com) (Magento 2).
 
 ## How to install
 ```
