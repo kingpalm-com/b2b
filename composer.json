@@ -1,6 +1,6 @@
 {
 	"name": "kingpalm/b2b"
-	,"version": "1.6.2"
+	,"version": "1.6.3"
 	,"description": "A B2B module for kingpalm.com"
 	,"type": "magento2-module"
 	,"homepage": "https://github.com/kingpalm-com/b2b"
@@ -11,7 +11,7 @@
 		,"homepage": "https://mage2.pro/users/dmitry_fedyuk"
 		,"role": "Developer"
 	}]
-	,"require": {"mage2pro/core": ">=5.9.7"}
+	,"require": {"mage2pro/core": ">=10.8.1"}
 	,"autoload": {"files": ["registration.php"], "psr-4": {"KingPalm\\B2B\\": ""}}
 	,"keywords": ["Magento 2"]
 }

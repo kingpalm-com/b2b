@@ -48,7 +48,7 @@ final class RegisterSuccess implements ObserverInterface {
 					,S::address(true) => df_cc_s($a->getStreet())
 					,S::city(true) => $a->getCity()
 					,S::postcode(true) => $a->getPostcode()
-					,S::region(true) => df_region_name($a['region'], $a['region_id'])
+					,S::region(true) => df_region_name($a)
 					,S::country(true) => df_country_ctn($a->getCountryId())
 					,S::agent(true) => $c[S::agent()]
 					,S::notes(true) => $c[S::notes()]
